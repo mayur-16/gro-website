@@ -1,0 +1,131 @@
+.about-us {
+    padding: 0px;
+    background-color: var(--white2);
+  }
+  
+  .about-us__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 10px;
+  }
+  
+  .about-us__stack {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .about-us__bg-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .about-us__at-gro {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    max-width: 50vw;
+  }
+  
+  .about-us__logo-big {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    max-width: 20vw;
+  }
+  
+  .about-us__vision {
+    width: 100%;
+    max-width: 80vw;
+    margin-top: 8vh;
+    margin-bottom: 5.5vh;
+  }
+  
+  .about-us__title {
+    font-family: var(--font-family);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--black1);
+    align-self: flex-start;
+    margin-left: 8vw;
+    margin-top: 0;
+    margin-bottom: 5vh;
+  }
+  
+  .about-us__cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 10vh;
+  }
+  
+  .about-us__card {
+    background-color: var(--white-pure);
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: start;
+  }
+  
+  .about-us__card-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .about-us__card-title {
+    font-family: var(--font-family);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--black4);
+    margin: 10px 0;
+    text-align: start;
+    align-self: flex-start;
+  }
+  
+  .about-us__card-subtext {
+    font-family: var(--font-family);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--black4);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .about-us {
+      padding: 20px;
+    }
+  
+    .about-us__card {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .about-us__title {
+      font-size: 36px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-us__title {
+      font-size: 28px;
+    }
+  
+    .about-us__at-gro,
+    .about-us__logo-big {
+      max-width: 150px;
+    }
+  
+    .about-us__vision {
+      max-width: 300px;
+    }
+  }

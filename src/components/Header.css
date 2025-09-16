@@ -1,0 +1,110 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  min-height: clamp(1.8rem, 3.5vw, 2.4375rem);
+  padding: clamp(0.3rem, 1vw, 0.5rem);
+  margin-top: 3.5vh;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-sizing: border-box;
+   /* background-color: var(--white2);  */
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__company-name {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--black1);
+}
+
+.header__nav {
+  display: flex;
+  gap: 50px;
+}
+
+.header__nav-item-wrapper {
+  position: relative; /* For positioning popup */
+}
+
+.header__nav-item {
+  font-family: var(--font-family);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--black2);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 12px;
+  transition: background-color 0.3s, border-radius 0.3s;
+}
+
+.header__nav-item:hover {
+  background-color: var(--light-blue2);
+  color: var(--blue-500);
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+.header__nav-item.active {
+  background-color: var(--light-blue1);
+  color: var(--blue-500);
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.header__services-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white-pure);
+  border-radius: 8px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 10;
+  width: max-content;
+  min-width: 220px;
+}
+
+.header__services-item {
+  font-family: var(--font-family);
+  font-size: 15px;
+  color: var(--black2);
+  text-decoration: none;
+  text-align: start;
+  padding: 8px 12px;
+  transition: background-color 0.3s;
+}
+
+.header__services-item:hover {
+  background-color: var(--blue-500);
+  color: var(--white2);
+  margin: 0px;
+}
+
+.header__cta {
+  width: 206px;
+  height: fit-content;
+  min-height: 35px;
+  background-color: var(--black1);
+  color: var(--white1);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.header__cta:hover {
+  background-color: var(--dark-gray);
+}

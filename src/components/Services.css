@@ -1,0 +1,131 @@
+.services {
+    background-color: var(--white-pure);
+  }
+  
+  .services__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+  
+  .services__image-row {
+    display: flex;
+    align-items: center;
+    align-self: start;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10vw;
+    margin-right: 0px;
+    gap: 0px;
+  }
+  
+  .services__bg-image {
+    width: 68%;
+    max-width: 900px;
+    height: auto;
+  }
+  
+  .services__logo-big {
+    width: 22%;
+  }
+  
+  .services__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 40px;
+    margin-left: 9vw;
+    margin-right: 9vw;
+  }
+  
+  .services__card {
+    background-color: var(--white2);
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
+  
+  .services__card:hover {
+    transform: translateY(-5px);
+    border-color: darkslategrey;
+    border-width: 1px;
+    border-style: solid;
+  }
+  
+  .services__card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .services__card-title {
+    font-family: var(--font-family);
+    font-size: 15.7px;
+    font-weight: 600;
+    color: var(--blue-800);
+    margin: 0;
+    text-align: start;
+  }
+ 
+  
+  .services__card-subtitle {
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--blue-800);
+    margin: 0;
+    text-align: start;
+  }
+  
+  .services__card-arrow {
+    width: 20px;
+    height: 20px;
+    color: var(--black1);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .services__cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .services {
+      padding: 20px;
+    }
+  
+    .services__cards {
+      grid-template-columns: 1fr;
+    }
+  
+    .services__image-row {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .services__logo-big {
+      max-width: 80px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .services__card-title {
+      font-size: 16px;
+    }
+  
+    .services__card-subtitle {
+      font-size: 11px;
+    }
+  
+    .services__logo-big {
+      max-width: 60px;
+    }
+  }

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@400;700&display=swap');
+
+.highlighted-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left-align all text */
+  gap: 2px; /* Space between lines */
+  font-family: 'Anuphan', sans-serif;
+  color: var(--black1);
+}
+
+.highlighted-text__financials {
+  font-weight: 700;
+  font-size: 60px;
+  background-color: var(--blue-600); /* Background highlighter */
+  color: var(--white2); /* White text for contrast on dark background */
+  padding: 10px;
+  line-height: 1.0; /* Prevents clipping */
+}
+
+.highlighted-text__line2 {
+  display: flex;
+  align-items: center; /* Align "Done" and "Super" vertically */
+  gap: 10px; /* Space between "Done" and "Super" */
+}
+
+.highlighted-text__done {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.0;
+}
+
+.highlighted-text__super {
+  font-weight: 400;
+  font-size: 28px;
+  background-color: var(--grey1); /* Container background */
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  border-radius: 60px;
+  line-height: 1.0;
+}
+
+.highlighted-text__smooth {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .highlighted-text__financials {
+    font-size: 50px; /* Scale down for tablets */
+    padding: 8px;
+  }
+
+  .highlighted-text__done {
+    font-size: 50px;
+  }
+
+  .highlighted-text__super {
+    font-size: 24px;
+    padding: 20px;
+    border-radius: 40px;
+  }
+
+  .highlighted-text__smooth {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlighted-text__financials {
+    font-size: 40px; /* Further scale down for mobile */
+    padding: 6px;
+  }
+
+  .highlighted-text__done {
+    font-size: 40px;
+  }
+
+  .highlighted-text__super {
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 30px;
+  }
+
+  .highlighted-text__smooth {
+    font-size: 40px;
+  }
+}
