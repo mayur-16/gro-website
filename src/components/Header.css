@@ -30,20 +30,20 @@
 
 .header--cta-visible .header__nav-item:hover {
   background-color: var(--light-blue2);
-  color: var(--white-pure);
+  color: var(--black2);
   font-weight: 700;
   border-radius: 20px;
 }
 
 .header--cta-visible .header__nav-item.active {
   background-color: var(--light-blue1);
-  color: var(--white-pure);
+  color: var(--blue-500);
   font-weight: 700;
   border-radius: 12px;
 }
 
 .header--cta-visible .header__services-item {
-  color: var(--white-pure);
+  color: var(--black1);
 }
 
 .header--cta-visible .header__services-item:hover {

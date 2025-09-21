@@ -1,6 +1,77 @@
 .services-testimonials {
   width: 100%;
-  background-color: var(--white1);
+  background-color: var(--blue-800);
+  position: relative;
+}
+
+/* Container for hover detection */
+.services-testimonials {
+  width: 100%;
+  background-color: var(--blue-800);
+  position: relative;
+}
+
+/* Parallax Background - Desktop Only - Limited to section bounds */
+.services-testimonials::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/website_background_logo.svg');
+  background-size: 50vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.9;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+/* Second layer for the hovered logo */
+.services-testimonials::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/website_background_logo_hovered.svg');
+  background-size: 50vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+/* Hover area positioned over the logo - reduced size */
+.services-testimonials__container:hover ~ .services-testimonials::before,
+.services-testimonials__container:hover::before {
+  opacity: 0.2;
+}
+
+.services-testimonials__container:hover ~ .services-testimonials::after,
+.services-testimonials__container:hover::after {
+  opacity: 0.9;
+}
+
+/* More specific hover - only when hovering over container area */
+.services-testimonials__container:hover + * .services-testimonials::before,
+.services-testimonials:hover .services-testimonials__container::before {
+  opacity: 0.2;
+}
+
+.services-testimonials:hover::before {
+  opacity: 0.2;
+}
+
+.services-testimonials:hover::after {
+  opacity: 0.9;
 }
 
 /* Container */
@@ -10,12 +81,15 @@
   padding-left: 14vw;
   padding-right: 14vw;
   padding-top: 2vh;
+  position: relative;
+  z-index: 1;
 }
 
-/* We Offer Section */
+/* We Offer Section - Transparent background to show parallax */
 .services-testimonials__offer {
-  background-color: var(--blue-800);
+  background-color: transparent;
   position: relative;
+  z-index: 1;
 }
 
 .services-testimonials__title {
@@ -25,6 +99,8 @@
   color: var(--white-pure);
   text-align: start;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .services-testimonials__title--client {
@@ -36,6 +112,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .services-testimonials__card {
@@ -66,7 +144,6 @@
   font-weight: 600;
   text-align: start;
   color: var(--blue-800);
-  /* margin: 0 0 12px 0; */
   line-height: 1.3;
 }
 
@@ -108,18 +185,37 @@
   text-align: start;
   margin: 0;
   line-height: 1.5;
+  position: relative;
+  z-index: 2;
 }
 
-/* Our Client Section */
+/* Our Client Section - Transparent background to show parallax */
 .services-testimonials__client {
-  background: linear-gradient(to bottom, var(--blue-800) 0%, var(--blue-800) 25%, var(--white2) 25%, var(--white2) 100%);
+  background-color: transparent;
   padding: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Add gradient overlay for the client section */
+.services-testimonials__client::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, transparent 25%, var(--white2) 25%, var(--white2) 100%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .services-testimonials__testimonials {
   columns: 4;
   column-gap: 20px;
   column-fill: balance;
+  position: relative;
+  z-index: 2;
 }
 
 .services-testimonials__testimonial {
@@ -167,13 +263,15 @@
   margin: 0;
 }
 
-/* Client Logos Section */
+/* Client Logos Section - Transparent background to show parallax */
 .services-testimonials__logos {
-  background-color: var(--blue-800);
+  background-color: transparent;
   padding-top: 7vh;
   padding-bottom: 7vh;
   padding-left: 5vw;
   padding-right: 5vw;
+  position: relative;
+  z-index: 1;
 }
 
 .services-testimonials__logo-grid {
@@ -183,6 +281,8 @@
   justify-items: center;
   padding: 0 10px;
   gap: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .services-testimonials__logo-item {
@@ -199,10 +299,7 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  /* filter: grayscale(100%); */
- 
 }
-
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -222,6 +319,31 @@
 }
 
 @media (max-width: 768px) {
+  /* Disable parallax on mobile and restore original backgrounds */
+  .services-testimonials {
+    background-color: var(--white1);
+  }
+  
+  .services-testimonials::before {
+    display: none;
+  }
+
+  .services-testimonials__offer {
+    background-color: var(--blue-800);
+  }
+
+  .services-testimonials__client {
+    background: linear-gradient(to bottom, var(--blue-800) 0%, var(--blue-800) 25%, var(--white2) 25%, var(--white2) 100%);
+  }
+
+  .services-testimonials__client::after {
+    display: none;
+  }
+
+  .services-testimonials__logos {
+    background-color: var(--blue-800);
+  }
+
   .services-testimonials__offer,
   .services-testimonials__client {
     padding: 40px 0;
