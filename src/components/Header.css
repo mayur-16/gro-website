@@ -3,13 +3,57 @@
   align-items: center;
   justify-content: space-between;
   height: auto;
-  min-height: clamp(1.8rem, 3.5vw, 2.4375rem);
+  min-height: clamp(2.9rem, 5.9vw, 3.5375rem);
   padding: clamp(0.3rem, 1vw, 0.5rem);
-  margin-top: 3.5vh;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
   box-sizing: border-box;
-   /* background-color: var(--white2);  */
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  background-color: var(--white-pure);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header--cta-visible {
+  background-color: var(--blue-800);
+}
+
+.header--cta-visible .header__company-name {
+  color: var(--white-pure);
+}
+
+.header--cta-visible .header__nav-item {
+  color: var(--white-pure);
+}
+
+.header--cta-visible .header__nav-item:hover {
+  background-color: var(--light-blue2);
+  color: var(--white-pure);
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+.header--cta-visible .header__nav-item.active {
+  background-color: var(--light-blue1);
+  color: var(--white-pure);
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.header--cta-visible .header__services-item {
+  color: var(--white-pure);
+}
+
+.header--cta-visible .header__services-item:hover {
+  background-color: var(--blue-500);
+  color: var(--white-pure);
+}
+
+.header--cta-visible .header__cta {
+  background-color: var(--white-pure);
+  color: var(--black1);
 }
 
 .header__logo {
@@ -23,6 +67,7 @@
   font-size: 20px;
   font-weight: 500;
   color: var(--black1);
+  transition: color 0.3s;
 }
 
 .header__nav {
@@ -31,7 +76,7 @@
 }
 
 .header__nav-item-wrapper {
-  position: relative; /* For positioning popup */
+  position: relative;
 }
 
 .header__nav-item {
@@ -42,7 +87,7 @@
   text-decoration: none;
   padding: 10px;
   border-radius: 12px;
-  transition: background-color 0.3s, border-radius 0.3s;
+  transition: background-color 0.3s, border-radius 0.3s, color 0.3s;
 }
 
 .header__nav-item:hover {
@@ -82,7 +127,7 @@
   text-decoration: none;
   text-align: start;
   padding: 8px 12px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .header__services-item:hover {
@@ -102,7 +147,7 @@
   font-family: var(--font-family);
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .header__cta:hover {

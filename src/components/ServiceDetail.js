@@ -1,17 +1,26 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FaAngleLeft, FaArrowRight ,FaCheckSquare } from 'react-icons/fa';
+import { FaAngleLeft ,FaCheckSquare } from 'react-icons/fa';
+import {IoArrowForwardCircleOutline} from 'react-icons/io5'
 import groLogoBig from '../assets/icons/gro_logo_big.svg';
-//import tickIcon from '../assets/icons/tick_icon.svg'; // Add green tick icon
+import CTA from './CTA';
 import './ServiceDetail.css';
 
 function ServiceDetail() {
   const { serviceId } = useParams();
 
+
+   const handleCtaClick = () => {
+    const ctaElement = document.querySelector('.cta');
+    if (ctaElement) {
+      ctaElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const servicesData = {
     'income-tax-returns': {
       title: 'Income Tax Returns',
-      subtitle: "File Your ITR in 59 Minutes! Don’t pay more than what's necessary",
+      subtitle: "File Your ITR in 59 Minutes! Don't pay more than what's necessary",
       description:
         "Streamline your financial management with GRO's professional accounting and bookkeeping services. We meticulously handle accounts payable and receivable management, payroll processing, bank reconciliation, and maintain precise financial records. Our certified bookkeepers deliver accurate, up-to-date insights via efficient outsourced accounting solutions, enabling informed business decisions and ensuring continuous tax and regulatory compliance.",
       keyBenefits: [
@@ -31,7 +40,7 @@ function ServiceDetail() {
         },
         {
             title:'Expert Review & Optimization',
-            description:'A tax expert reviews your filing, ensuring maximum deductions and accurate returns, so you don’t pay more than necessary.'
+            description:"A tax expert reviews your filing, ensuring maximum deductions and accurate returns, so you don't pay more than necessary."
         },
         {
             title: 'Approval & E-Filing',
@@ -39,7 +48,7 @@ function ServiceDetail() {
         },
         {
             title: 'Confirmation & Support',
-            description:'You’ll receive a confirmation email with your ITR filing status and next steps. Need help? Our experts are available at no extra cost!'
+            description:"You'll receive a confirmation email with your ITR filing status and next steps. Need help? Our experts are available at no extra cost!"
         }
         
       ],
@@ -69,11 +78,11 @@ function ServiceDetail() {
           title: 'Processing & Verification',
           description:
             'We quickly analyze your data, cross check compliance and revert in case of any additional documents or explanations.',
-          optionalDescription: "Don’t pay more than what's necessary",
+          optionalDescription: "Don't pay more than what's necessary",
         },
         {
             title:'Expert Review & Optimization',
-            description:'A tax expert reviews your filing, ensuring maximum deductions and accurate returns, so you don’t pay more than necessary.'
+            description:"A tax expert reviews your filing, ensuring maximum deductions and accurate returns, so you don't pay more than necessary."
         },
         {
             title: 'Approval & E-Filing',
@@ -81,7 +90,7 @@ function ServiceDetail() {
         },
         {
             title: 'Confirmation & Support',
-            description:'You’ll receive a confirmation email with your ITR filing status and next steps. Need help? Our experts are available at no extra cost!'
+            description:"You'll receive a confirmation email with your ITR filing status and next steps. Need help? Our experts are available at no extra cost!"
         }
          ] },
     'financial-due-diligence': { title: 'Financial Due Diligence (FDD)', subtitle: '', description: '', keyBenefits: [], howItWorks: [] },
@@ -102,50 +111,55 @@ function ServiceDetail() {
       <div className="service-detail__container">
         <Link to="/services" className="service-detail__back">
           <FaAngleLeft />
+          Back
         </Link>
          <img
             src={groLogoBig}
             alt="GRO Logo Big"
             className="service-detail__logo"
           />
-        <div className="service-detail__card">
-          <div className="service-detail__card-content">
-            <h1 className="service-detail__title">{service.title}</h1>
-            <p className="service-detail__subtitle">{service.subtitle}</p>
-            <p className="service-detail__description">{service.description}</p>
-            <h2 className="service-detail__benefits-title">Key Benefits</h2>
-            <div className="service-detail__benefits">
-              {service.keyBenefits.map((benefit, index) => (
-                <div key={index} className="service-detail__benefit-card">
-                  <FaCheckSquare className="service-detail__benefit-icon" />
-                  <p className="service-detail__benefit-text">{benefit}</p>
+        <div className="service-detail-card__container">
+          
+           <div className="service-detail__card">
+              <div className="service-detail__card-content">
+                <h1 className="service-detail__title">{service.title}</h1>
+                <p className="service-detail__subtitle">{service.subtitle}</p>
+                <p className="service-detail__description">{service.description}</p>
+                <h2 className="service-detail__benefits-title">Key Benefits</h2>
+                <div className="service-detail__benefits">
+                  {service.keyBenefits.map((benefit, index) => (
+                    <div key={index} className="service-detail__benefit-card">
+                      <FaCheckSquare className="service-detail__benefit-icon" />
+                      <p className="service-detail__benefit-text">{benefit}</p>
+                    </div>
+                  ))}
+                </div>
+                <button className="service-detail__cta" onClick={handleCtaClick} >
+                  Get Started
+                  <IoArrowForwardCircleOutline className="service-detail__cta-icon" />
+                </button>
+              </div>
+            </div>
+            <h2 className="service-detail__how-title">How it works</h2>
+            <div className="service-detail__how-cards">
+              {service.howItWorks.map((step, index) => (
+                <div key={index} className="service-detail__how-card">
+                  {step.title && (
+                    <h3 className="service-detail__how-step">
+                      <span className="service-detail__how-step-number">Step {index + 1}:</span> {step.title}
+                    </h3>
+                  )}
+                  {step.description && (
+                    <p className="service-detail__how-description">{step.description}</p>
+                  )}
+                  {step.optionalDescription && (
+                    <p className="service-detail__how-optional">{step.optionalDescription}</p>
+                  )}
                 </div>
               ))}
             </div>
-            <button className="service-detail__cta">
-              Get Started
-              <FaArrowRight className="service-detail__cta-icon" />
-            </button>
-          </div>
-        </div>
-        <h2 className="service-detail__how-title">How it works</h2>
-        <div className="service-detail__how-cards">
-          {service.howItWorks.map((step, index) => (
-            <div key={index} className="service-detail__how-card">
-              {step.title && (
-                <h3 className="service-detail__how-step">
-                  Step {index + 1}: {step.title}
-                </h3>
-              )}
-              {step.description && (
-                <p className="service-detail__how-description">{step.description}</p>
-              )}
-              {step.optionalDescription && (
-                <p className="service-detail__how-optional">{step.optionalDescription}</p>
-              )}
-            </div>
-          ))}
-        </div>
+        </div>  
+        <CTA calledFromAboutUs={false} />
       </div>
     </section>
   );

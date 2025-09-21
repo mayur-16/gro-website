@@ -8,6 +8,11 @@ import './Footer.css';
 function Footer() {
   const navItems = ['Home', 'About', 'Services'];
 
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -25,8 +30,9 @@ function Footer() {
             {navItems.map((item) => (
               <NavLink
                 key={item}
-                to={`/${item.toLowerCase().replace(' ', '-')}`}
+                to={item ==='About'?`/about-us`:`/${item.toLowerCase().replace(' ', '-')}`}
                 className="footer__nav-item"
+                onClick={handleNavClick}
               >
                 {item}
               </NavLink>

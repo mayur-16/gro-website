@@ -91,7 +91,8 @@
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin-top: 40px;
+    margin-top: 60px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
   }
   

@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import ServicesTestimonials from './components/ServicesTestimonials';
 import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import ServiceDetail from './components/ServiceDetail';
@@ -13,16 +14,16 @@ function Home() {
   return (
     <>
       <Hero />
+      <ServicesTestimonials />
       <CTA calledFromAboutUs={false} /> 
     </>
   );
-}
-
-
-
+ }
 
 function InfoCenter() {
-  return <div>Info Center Page</div>;
+  return (
+      <CTA calledFromAboutUs={false} />
+  );
 }
 
 function App() {
@@ -42,4 +43,4 @@ function App() {
   );
 }
 
-  export default App;
+export default App;
