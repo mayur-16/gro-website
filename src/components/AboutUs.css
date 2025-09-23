@@ -37,6 +37,10 @@
     top: -20px;
     right: -20px;
     max-width: 20vw;
+    background-color: var(--grey2);
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 2;
   }
   
   .about-us__vision {

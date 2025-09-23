@@ -63,17 +63,14 @@
 
 
 .service-detail__logo {
-   position: absolute;
-   color: var(--white-pure);
-   background-color: transparent;
-  top: 70px;
-  right: 70px;
-  width: 10rem;
-  height: 10rem;
-  border-radius: 3rem;
-  object-fit: fill;
-   z-index: 2; /*Above the cutout pseudo-element */
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    max-width: 15vw;
+    background-color: var(--grey2);
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 2;
 }
 
 .service-detail__card-content {
@@ -97,6 +94,7 @@
   font-weight: 500;
   color: var(--black1);
   margin: 0;
+  text-align: start;
 }
 
 .service-detail__description {
@@ -143,6 +141,7 @@
   font-size: 17px;
   font-weight: 400;
   color: var(--blue-500);
+  text-align: start;
 }
 
 .service-detail__cta {

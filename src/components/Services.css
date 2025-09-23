@@ -30,6 +30,10 @@
   
   .services__logo-big {
     width: 22%;
+    background-color: var(--grey2);
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 2;
   }
   
   .services__cards {

@@ -15,6 +15,13 @@ function Hero() {
     { number: 50, suffix: '+', text: 'International Clients' },
   ];
 
+  const handleCtaClick = () => {
+    const ctaElement = document.querySelector('.cta');
+    if (ctaElement) {
+      ctaElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="hero">
       <div className="hero__container">
@@ -26,7 +33,7 @@ function Hero() {
             className="hero__explanation-image"
           />
           <div className="hero__actions">
-            <button className="hero__cta">Consult with Us Today</button>
+            <button className="hero__cta" onClick={handleCtaClick}>Consult with Us Today</button>
             <NavLink to="/services" className="hero__services-link">
               Our Services
             </NavLink>
