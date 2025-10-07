@@ -1,7 +1,9 @@
-/* .hero {
-     background-color: var(--white1); 
-    padding: 40px;
-  } */
+.hero {
+  background-color: var(--white-pure);
+  position: relative;
+  z-index: 10;
+  padding-bottom: 7vh;
+}
   
   .hero__container {
     display: flex;
@@ -92,7 +94,7 @@
     justify-content: center;
     gap: 40px;
     margin-top: 60px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     flex-wrap: wrap;
   }
   

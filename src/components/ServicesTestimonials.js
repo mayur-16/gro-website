@@ -143,7 +143,7 @@ function ServicesTestimonials() {
         const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
         
         // Map progress to horizontal position: 20% to 80% of viewport width
-        const xOffset = 20 + (clampedProgress * 60);
+        const xOffset =  (clampedProgress * 100);
         
         // Update CSS variable
         section.style.setProperty('--parallax-x', `${xOffset}%`);
