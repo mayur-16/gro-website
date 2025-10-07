@@ -9,63 +9,48 @@
   width: 100%;
   background-color: var(--blue-800);
   position: relative;
+  --parallax-x: -30%;
 }
 
-/* Parallax Background - Desktop Only - Limited to section bounds */
+/* Parallax Background - Desktop Only - Fixed to viewport center */
 .services-testimonials::before {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: var(--parallax-x);
+  width: 50vw;
+  height: 50vw;
   background-image: url('../assets/images/website_background_logo.svg');
-  background-size: 50vw;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   opacity: 0.9;
   z-index: 0;
   pointer-events: none;
   transition: opacity 0.8s ease;
+  transform: translate(-50%, -50%);
 }
 
 /* Second layer for the hovered logo */
 .services-testimonials::after {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: var(--parallax-x);
+  width: 50vw;
+  height: 50vw;
   background-image: url('../assets/images/website_background_logo_hovered.svg');
-  background-size: 50vw;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   opacity: 0;
   z-index: 0;
   pointer-events: none;
   transition: opacity 0.8s ease;
+  transform: translate(-50%, -50%);
 }
 
-/* Hover area positioned over the logo - reduced size */
-.services-testimonials__container:hover ~ .services-testimonials::before,
-.services-testimonials__container:hover::before {
-  opacity: 0.2;
-}
-
-.services-testimonials__container:hover ~ .services-testimonials::after,
-.services-testimonials__container:hover::after {
-  opacity: 0.9;
-}
-
-/* More specific hover - only when hovering over container area */
-.services-testimonials__container:hover + * .services-testimonials::before,
-.services-testimonials:hover .services-testimonials__container::before {
-  opacity: 0.2;
-}
-
+/* Hover effect - smooth fade between logos */
 .services-testimonials:hover::before {
   opacity: 0.2;
 }

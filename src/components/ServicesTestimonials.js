@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import {IoArrowForwardCircleOutline} from 'react-icons/io5'
 import './ServicesTestimonials.css';
 
 function ServicesTestimonials() {
+  const sectionRef = useRef(null);
+
   const services = [
     {
       id: 'income-tax-returns',
@@ -104,7 +106,6 @@ function ServicesTestimonials() {
       rating: 5,
       text: 'Best CA firm in Mangalore. Excellent work. Keep it up. Returns filing made very easy. Great transparency & great commitment to work.'
     }
-    
   ];
 
   const clientLogos = [
@@ -121,8 +122,56 @@ function ServicesTestimonials() {
     ));
   };
 
+  // Scroll-based horizontal parallax effect
+  useEffect(() => {
+    const handleScrollParallax = () => {
+      if (!sectionRef.current) return;
+      
+      // Desktop only
+      if (window.innerWidth <= 768) return;
+
+      const section = sectionRef.current;
+      const sectionRect = section.getBoundingClientRect();
+      const sectionTop = sectionRect.top + window.pageYOffset;
+      const sectionHeight = sectionRect.height;
+      const scrolled = window.pageYOffset;
+
+      // Check if section is in viewport
+      if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
+        // Calculate scroll progress through the section (0 to 1)
+        const scrollProgress = (scrolled - sectionTop) / (sectionHeight - window.innerHeight);
+        const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
+        
+        // Map progress to horizontal position: 20% to 80% of viewport width
+        const xOffset = 20 + (clampedProgress * 60);
+        
+        // Update CSS variable
+        section.style.setProperty('--parallax-x', `${xOffset}%`);
+      }
+    };
+
+    // Throttle scroll events
+    let ticking = false;
+    const scrollHandler = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScrollParallax();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', scrollHandler);
+    handleScrollParallax(); // Initial call
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
+
   return (
-    <section className="services-testimonials">
+    <section className="services-testimonials" ref={sectionRef}>
       {/* We Offer Section */}
       <div className="services-testimonials__offer">
         <div className="services-testimonials__container">

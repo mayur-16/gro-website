@@ -67,8 +67,6 @@
     top: 60px;
     right: 80px;
     max-width: 15vw;
-    background-color: var(--grey2);
-    border-radius: 50%;
     padding: 5px;
     z-index: 2;
 }
