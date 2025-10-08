@@ -28,7 +28,7 @@ function AboutUs() {
       icon: transparencyIcon,
       title: 'Transparent & Hassle-Free',
       subtext:
-        'No hidden fees, no complicated processes—just clear and effective solutions.',
+        'No hidden fees, no complicated processes, just clear and effective solutions.',
     },
     {
       icon: globalReachIcon,

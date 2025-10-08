@@ -56,10 +56,15 @@
   color: var(--black1);
 }
 
+.header--cta-visible .header__hamburger-line {
+  background-color: var(--white-pure);
+}
+
 .header__logo {
   display: flex;
   align-items: center;
   gap: 10px;
+  z-index: 1001;
 }
 
 .header__company-name {
@@ -152,4 +157,135 @@
 
 .header__cta:hover {
   background-color: var(--dark-gray);
+}
+
+/* Hamburger Menu Styles */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.header__hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--black1);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hamburger animation when open */
+.header__hamburger--open .header__hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.header__hamburger--open .header__hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.header__hamburger--open .header__hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu Overlay */
+.header__mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--white-pure);
+  z-index: 999;
+  overflow-y: auto;
+  padding-top: 80px;
+}
+
+.header__mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.header__mobile-nav-item-wrapper {
+  width: 100%;
+}
+
+.header__mobile-nav-item {
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--black1);
+  text-decoration: none;
+  padding: 15px 20px;
+  display: block;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+.header__mobile-nav-item:hover {
+  background-color: var(--light-blue2);
+  color: var(--blue-500);
+}
+
+.header__mobile-nav-item.active {
+  background-color: var(--light-blue1);
+  color: var(--blue-500);
+  font-weight: 600;
+}
+
+.header__cta--mobile {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 18px;
+  min-height: 50px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem 1rem;
+  }
+
+  .header__company-name {
+    font-size: 18px;
+  }
+
+  /* Hide desktop nav and CTA */
+  .header__nav {
+    display: none;
+  }
+
+  .header__cta--desktop {
+    display: none;
+  }
+
+  /* Show hamburger menu */
+  .header__hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__company-name {
+    font-size: 16px;
+  }
+
+  .header__logo img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .header__mobile-nav-item {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+
 }

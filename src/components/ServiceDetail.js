@@ -298,7 +298,7 @@ function ServiceDetail() {
         ] },
     'trademark-services': { 
       title: 'Trademark Services',
-       subtitle: "Protect your unique brand name and logo – let's secure your trademark registration in India.", 
+       subtitle: "Protect your unique brand name and logo , let's secure your trademark registration in India.", 
        description: 'Protect your valuable brand identity with our expert trademark services in India. Our team handles comprehensive trademark search, manages the entire trademark registration process, assists with timely trademark renewal, and advises on trademark enforcement strategies. Safeguard your intellectual property (IP) and secure your unique brand identity from potential disputes with our certified trademark consultants.',
         keyBenefits: [
           "Exclusive Rights: Gain legal right to use your brand name/logo nationwide for specific goods/services.",

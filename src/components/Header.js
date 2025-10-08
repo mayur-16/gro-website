@@ -6,20 +6,10 @@ import './Header.css';
 function Header() {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
   const [isCtaAndFooterVisible, setIsCtaAndFooterVisible] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   const navItems = ['Home', 'About Us', 'Services', 'Info Center'];
-  // const servicesItems = [
-  //   'Income Tax Returns',
-  //   'Accounting & Bookkeeping',
-  //   'GST Returns',
-  //   'Tax Advisory',
-  //   'Incorporation Services',
-  //   'Financial Due Diligence',
-  //   'Trademark Services',
-  //   'Tax Litigation',
-  //   'Digital Signature',
-  // ];
    
   const servicesItems = [
     { 
@@ -65,7 +55,43 @@ function Header() {
     if (ctaElement) {
       ctaElement.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false); // Close menu after clicking
   };
+
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false); // Close menu when navigating
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMobileMenuOpen && !event.target.closest('.header')) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const ctaObserver = new IntersectionObserver(
@@ -94,14 +120,17 @@ function Header() {
     return () => {
       ctaElements.forEach((el) => ctaObserver.unobserve(el));
     };
-  }, [location.pathname]); // Re-run effect on route change
+  }, [location.pathname]);
 
   return (
     <header className={`header ${isCtaAndFooterVisible ? 'header--cta-visible' : ''}`}>
+      {/* Logo and Company Name */}
       <div className="header__logo">
         <img src={logo} alt="GRO Associates Logo" width="35" height="35" />
         <span className="header__company-name">GRO Associates</span>
       </div>
+
+      {/* Desktop Navigation */}
       <nav className="header__nav">
         {navItems.map((item) => (
           <div
@@ -120,7 +149,7 @@ function Header() {
             </NavLink>
             {item === 'Services' && showServicesMenu && (
               <div className="header__services-menu">
-                { servicesItems.map((service) => (
+                {servicesItems.map((service) => (
                   <NavLink
                     key={service.id}
                     to={`/services/${service.id}`}
@@ -134,7 +163,48 @@ function Header() {
           </div>
         ))}
       </nav>
-      <button className="header__cta" onClick={handleCtaClick}>Get a Quote</button>
+
+      {/* Desktop CTA Button */}
+      <button className="header__cta header__cta--desktop" onClick={handleCtaClick}>
+        Get a Quote
+      </button>
+
+      {/* Mobile Hamburger Menu */}
+      <button 
+        className={`header__hamburger ${isMobileMenuOpen ? 'header__hamburger--open' : ''}`}
+        onClick={toggleMobileMenu}
+        aria-label="Toggle menu"
+      >
+        <span className="header__hamburger-line"></span>
+        <span className="header__hamburger-line"></span>
+        <span className="header__hamburger-line"></span>
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="header__mobile-overlay">
+          <nav className="header__mobile-nav">
+            {navItems.map((item) => (
+              <div key={item} className="header__mobile-nav-item-wrapper">
+                { 
+                  <NavLink
+                    to={`/${item.toLowerCase().replace(' ', '-')}`}
+                    className={({ isActive }) =>
+                      `header__mobile-nav-item ${isActive ? 'active' : ''}`
+                    }
+                    onClick={handleNavClick}
+                  >
+                    {item}
+                  </NavLink>
+                }
+              </div>
+            ))}
+            <button className="header__cta header__cta--mobile" onClick={handleCtaClick}>
+              Get a Quote
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
