@@ -199,17 +199,22 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--white-pure);
   z-index: 999;
   overflow-y: auto;
   padding-top: 80px;
+  align-items: center;
+  
 }
 
 .header__mobile-nav {
   display: flex;
   flex-direction: column;
+  background-color: var(--white-pure);
+  border-radius: 18px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  gap: 10px;
+  margin: 0px 10px 20px 10px;
+  
 }
 
 .header__mobile-nav-item-wrapper {
@@ -274,6 +279,9 @@
 }
 
 @media (max-width: 480px) {
+  .header {
+    background-color: var(--white2);
+  }
   .header__company-name {
     font-size: 16px;
   }

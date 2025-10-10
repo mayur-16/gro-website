@@ -4,6 +4,7 @@ import CountUp from 'react-countup';
 import HighlightedText from './HighlightedText';
 import explanationImage from '../assets/images/Hero_section_explanaition_text.svg';
 import goGroImage from '../assets/images/Go_gro.svg';
+import groLogoMobile from '../assets/icons/gro_logo_mobile.svg';
 import './Hero.css';
 
 function Hero() {
@@ -25,7 +26,8 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero__container">
-        <div className="hero__left">
+        {/* Desktop Layout */}
+        <div className="hero__left hero__left--desktop">
           <HighlightedText />
           <img
             src={explanationImage}
@@ -39,6 +41,27 @@ function Hero() {
             </NavLink>
           </div>
         </div>
+
+        {/* Mobile Layout */}
+        <div className="hero__left hero__left--mobile">
+          <div className="hero__mobile-header">
+            <HighlightedText />
+            <img
+              src={groLogoMobile}
+              alt="GRO Associates Mobile Logo"
+              className="hero__logo-mobile"
+            />
+          </div>
+          <div className="hero__mobile-actions">
+            <button className="hero__cta hero__cta--mobile" onClick={handleCtaClick}>
+              Consult with Us Today
+            </button>
+            <NavLink to="/services" className="hero__cta hero__cta--mobile hero__cta--services">
+              Our Services
+            </NavLink>
+          </div>
+        </div>
+
         <div className="hero__right">
           <div className="hero__right-bg" />
           <img src={goGroImage} alt="Go GRO" className="hero__go-gro" />
