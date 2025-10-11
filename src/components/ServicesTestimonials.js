@@ -118,7 +118,7 @@ function ServicesTestimonials() {
   // Group logos into sets of 4 (2x2)
   const logoSets = [];
   for (let i = 0; i < clientLogos.length; i += 4) {
-    logoSets.push(clientLogos.slice(i, i + 4));
+    logoSets.push(clientLogos.slice(i, i + 2));
   }
 
   const renderStars = (rating) => {
