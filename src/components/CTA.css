@@ -14,7 +14,6 @@
     height: 100%;
     background-color: var(--blue-800);
     opacity: 0.95;
-    /* z-index: 1; */
   }
   
   .cta__container {
@@ -26,6 +25,20 @@
     max-width: 85vw;
     margin: 0 auto;
     gap: 10vw;
+  }
+
+  /* Desktop View */
+  .cta__desktop-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    gap: 10vw;
+  }
+
+  /* Mobile View - Hidden by default */
+  .cta__mobile-view {
+    display: none;
   }
   
   .cta__text {
@@ -161,53 +174,80 @@
   .cta__status--error {
     color: #ef4444;
   }
+
+  /* Mobile Button Styles */
+  .cta__mobile-button {
+    width: 60vw;
+    min-height: 50px;
+    background-color: var(--black1);
+    color: var(--white-pure);
+    border: none;
+    border-radius: 30px;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta__mobile-button:hover {
+    background-color: var(--white2);
+    transform: translateY(-2px);
+  }
+
+  .cta__mobile-button:active {
+    transform: translateY(0);
+  }
+
+  .cta__mobile-button:disabled {
+    background-color: var(--black3);
+  }
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
-    .cta__container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .cta__text,
-    .cta__form {
-      width: 100%;
-    }
-  
-    .cta__title {
-      font-size: 36px;
-    }
-  
-    .cta__subtitle {
-      font-size: 16px;
+    .cta {
+      padding: 40px 20px;
+      background-image: none;
     }
 
-    .cta__form {
-      margin-right: 0;
+    .cta__background {
+      background-color: var(--white-pure);
+    }
+
+    .cta__container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 50%;
+    }
+
+    /* Hide desktop view on mobile */
+    .cta__desktop-view {
+      display: none;
+    }
+
+    /* Show mobile view */
+    .cta__mobile-view {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
     }
   }
   
   @media (max-width: 480px) {
     .cta {
-      padding: 20px;
-    }
-  
-    .cta__title {
-      font-size: 28px;
-    }
-  
-    .cta__input,
-    .cta__textarea {
-      font-size: 15px;
-      max-width: 100%;
-    }
-  
-    .cta__submit {
-      padding: 12px 40px;
+      padding: 30px 15px;
+      background-image: none;
     }
 
-    .cta__error,
-    .cta__status {
-      max-width: 100%;
+    .cta__background {
+      background-color: var(--white-pure);
+    }
+
+    .cta__mobile-button {
+      font-size: 15px;
+      min-height: 45px;
     }
   }

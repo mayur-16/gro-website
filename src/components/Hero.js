@@ -1,13 +1,11 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
 import CountUp from 'react-countup';
 import HighlightedText from './HighlightedText';
-import explanationImage from '../assets/images/Hero_section_explanaition_text.svg';
+import GroAssociatesExplanationText from './GroExplainationText';
 import goGroImage from '../assets/images/Go_gro.svg';
 import groLogoMobile from '../assets/icons/gro_logo_mobile.svg';
 import './Hero.css';
 
-function Hero() {
+function Hero({ onOpenPopup }) {
   const stats = [
     { number: 500, suffix: '+', text: 'Income tax filers' },
     { number: 40, suffix: '+', text: 'Expert Professionals' },
@@ -29,16 +27,17 @@ function Hero() {
         {/* Desktop Layout */}
         <div className="hero__left hero__left--desktop">
           <HighlightedText />
-          <img
+          <GroAssociatesExplanationText />
+          {/* <img
             src={explanationImage}
             alt="Explanation"
             className="hero__explanation-image"
-          />
+          /> */}
           <div className="hero__actions">
             <button className="hero__cta" onClick={handleCtaClick}>Consult with Us Today</button>
-            <NavLink to="/services" className="hero__services-link">
+            <button className="hero__cta hero__cta--services" onClick={() => window.location.href = '/services'}>
               Our Services
-            </NavLink>
+            </button>
           </div>
         </div>
 
@@ -53,12 +52,12 @@ function Hero() {
             />
           </div>
           <div className="hero__mobile-actions">
-            <button className="hero__cta hero__cta--mobile" onClick={handleCtaClick}>
+            <button className="hero__cta hero__cta--mobile" onClick={onOpenPopup}>
               Consult with Us Today
             </button>
-            <NavLink to="/services" className="hero__cta hero__cta--mobile hero__cta--services">
+            <button className="hero__cta hero__cta--mobile hero__cta--services" onClick={() => window.location.href = '/services'}>
               Our Services
-            </NavLink>
+            </button>
           </div>
         </div>
 

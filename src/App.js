@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -8,37 +8,46 @@ import Services from './components/Services';
 import ServiceDetail from './components/ServiceDetail';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import CTAPopup from './components/CTAPopup';
 import './App.css';
 
-function Home() {
+function Home({ onOpenPopup }) {
   return (
     <>
-      <Hero />
+      <Hero onOpenPopup={onOpenPopup} />
       <ServicesTestimonials />
-      <CTA calledFromAboutUs={false} /> 
+      <CTA calledFromAboutUs={false} onOpenPopup={onOpenPopup} /> 
     </>
   );
- }
+}
 
-function InfoCenter() {
+function InfoCenter({ onOpenPopup }) {
   return (
-      <CTA calledFromAboutUs={false} />
+    <CTA calledFromAboutUs={false} onOpenPopup={onOpenPopup} />
   );
 }
 
 function App() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+
   return (
     <div className="App">
-      <Header />
+      <Header onOpenPopup={openPopup} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/services/:serviceId" element={<ServiceDetail />} />
-        <Route path="/info-center" element={<InfoCenter />} />
+        <Route path="/" element={<Home onOpenPopup={openPopup} />} />
+        <Route path="/home" element={<Home onOpenPopup={openPopup} />} />
+        <Route path="/about-us" element={<AboutUs onOpenPopup={openPopup} />} />
+        <Route path="/services" element={<Services onOpenPopup={openPopup} />} />
+        <Route path="/services/:serviceId" element={<ServiceDetail onOpenPopup={openPopup} />} />
+        <Route path="/info-center" element={<InfoCenter onOpenPopup={openPopup} />} />
       </Routes>
       <Footer />
+      
+      {/* Global CTA Popup */}
+      <CTAPopup isOpen={isPopupOpen} onClose={closePopup} />
     </div>
   );
 }

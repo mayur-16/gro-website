@@ -1,0 +1,13 @@
+
+.gro-exp-text {
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--black1);
+  text-align: start;
+  line-height: 1.6;
+  max-width: 50vw;
+}
+
+.gro-exp-text .bold {
+  font-weight: 600;
+}

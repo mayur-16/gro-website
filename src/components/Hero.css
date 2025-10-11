@@ -39,7 +39,8 @@
 }
   
 .hero__cta {
-  width: 206px;
+  min-width : 180px;
+  width: 15vw;
   min-height: 39px;
   background-color: var(--black1);
   color: var(--white1);
@@ -53,17 +54,6 @@
   
 .hero__cta:hover {
   background-color: var(--dark-gray);
-}
-  
-.hero__services-link {
-  font-family: var(--font-family);
-  font-size: 16px;
-  color: var(--black1);
-  text-decoration: underline;
-}
-  
-.hero__services-link:hover {
-  color: var(--navy-blue);
 }
   
 .hero__right {
@@ -157,7 +147,7 @@
 }
 
 .hero__cta--mobile {
-  width: 60vw;
+  width: 50vw;
   min-height: 45px;
   text-decoration: none;
   display: flex;
@@ -169,10 +159,11 @@
   background-color: var(--white-pure);
   color: var(--black1);
   border: 2px solid var(--black1);
+  text-align: center;
 }
 
 .hero__cta--services:hover {
-  background-color: var(--black1);
+  background-color: var(--black2);
   color: var(--white-pure);
 }
   

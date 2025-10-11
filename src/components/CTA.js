@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './CTA.css';
 
-function CTA({ calledFromAboutUs }) {
+function CTA({ calledFromAboutUs, onOpenPopup }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,7 +13,7 @@ function CTA({ calledFromAboutUs }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  // Initialize EmailJS (add this to your useEffect or at component mount)
+  // Initialize EmailJS
   React.useEffect(() => {
     emailjs.init("x_3X1VY7l5oI5KNSG"); 
   }, []);
@@ -38,7 +38,6 @@ function CTA({ calledFromAboutUs }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Clear previous status
     setSubmitStatus(null);
     
     const validationErrors = validateForm();
@@ -48,14 +47,14 @@ function CTA({ calledFromAboutUs }) {
       
       try {
         const result = await emailjs.send(
-          'service_p6yzb1e', // Your service ID
-          'template_14n1y3c', // Your template ID
+          'service_p6yzb1e',
+          'template_14n1y3c',
           {
             from_name: formData.name,
             from_email: formData.email,
             phone: formData.phone,
             message: formData.message,
-            to_name: 'GRO Associates', // Add this if your template expects it
+            to_name: 'GRO Associates',
           }
         );
         
@@ -63,7 +62,6 @@ function CTA({ calledFromAboutUs }) {
         setSubmitStatus('Message sent successfully! We\'ll get back to you soon.');
         setFormData({ name: '', email: '', phone: '', message: '' });
         
-        // Clear success message after 5 seconds
         setTimeout(() => {
           setSubmitStatus(null);
         }, 5000);
@@ -72,7 +70,6 @@ function CTA({ calledFromAboutUs }) {
         console.error('EmailJS Error:', error);
         setSubmitStatus('Failed to send message. Please try again or contact us directly.');
         
-        // Clear error message after 5 seconds
         setTimeout(() => {
           setSubmitStatus(null);
         }, 5000);
@@ -88,12 +85,10 @@ function CTA({ calledFromAboutUs }) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     
-    // Clear specific field error when user starts typing
     if (errors[name]) {
       setErrors({ ...errors, [name]: '' });
     }
     
-    // Clear status message when user starts typing
     if (submitStatus) {
       setSubmitStatus(null);
     }
@@ -103,77 +98,87 @@ function CTA({ calledFromAboutUs }) {
     <section className="cta">
       <div className="cta__background" />
       <div className="cta__container">
-        <div className="cta__text">
-          {calledFromAboutUs ? (
-            <div className="cta__text-about">
-              <h2 className="cta__title">Want to work with us?</h2>
-              <p className="cta__subtitle">
-                Get in touch with us and we'll have a look
-              </p>
-            </div>
-          ) : (
-            <h2 className="cta__title">Connect with Us</h2>
-          )}
+        {/* Desktop View - Form */}
+        <div className="cta__desktop-view">
+          <div className="cta__text">
+            {calledFromAboutUs ? (
+              <div className="cta__text-about">
+                <h2 className="cta__title">Want to work with us?</h2>
+                <p className="cta__subtitle">
+                  Get in touch with us and we'll have a look
+                </p>
+              </div>
+            ) : (
+              <h2 className="cta__title">Connect with Us</h2>
+            )}
+          </div>
+          
+          <form className="cta__form" onSubmit={handleSubmit}>
+            {[
+              { name: 'name', label: 'Name', placeholder: 'John Doe' },
+              { name: 'email', label: 'Email', placeholder: 'johndoe@email.com' },
+              {
+                name: 'phone',
+                label: 'Phone No.',
+                placeholder: '+91 9876543212',
+              },
+              {
+                name: 'message',
+                label: 'Message',
+                placeholder:
+                  'Tell us about your requirements or questions. We are here to help!',
+              },
+            ].map((field) => (
+              <div key={field.name} className="cta__field">
+                <label className="cta__label" htmlFor={field.name}>
+                  {field.label}
+                </label>
+                {field.name === 'message' ? (
+                  <textarea
+                    name={field.name}
+                    id={field.name}
+                    placeholder={field.placeholder}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className="cta__input cta__textarea"
+                    rows="4"
+                  />
+                ) : (
+                  <input
+                    type={field.name === 'email' ? 'email' : 'text'}
+                    name={field.name}
+                    id={field.name}
+                    placeholder={field.placeholder}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className="cta__input"
+                    autoComplete={field.name === 'email' ? 'email' : field.name === 'name' ? 'name' : 'off'}
+                  />
+                )}
+                {errors[field.name] && (
+                  <span className="cta__error">{errors[field.name]}</span>
+                )}
+              </div>
+            ))}
+            
+            <button type="submit" className="cta__submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send'}
+            </button>
+            
+            {submitStatus && (
+              <div className={`cta__status ${submitStatus.includes('Failed') || submitStatus.includes('try again') ? 'cta__status--error' : ''}`}>
+                {submitStatus}
+              </div>
+            )}
+          </form>
         </div>
-        
-        <form className="cta__form" onSubmit={handleSubmit}>
-          {[
-            { name: 'name', label: 'Name', placeholder: 'John Doe' },
-            { name: 'email', label: 'Email', placeholder: 'johndoe@email.com' },
-            {
-              name: 'phone',
-              label: 'Phone No.',
-              placeholder: '+91 9876543212',
-            },
-            {
-              name: 'message',
-              label: 'Message',
-              placeholder:
-                'Tell us about your requirements or questions. We are here to help!',
-            },
-          ].map((field) => (
-            <div key={field.name} className="cta__field">
-              <label className="cta__label" htmlFor={field.name}>
-                {field.label}
-              </label>
-              {field.name === 'message' ? (
-                <textarea
-                  name={field.name}
-                  id={field.name}
-                  placeholder={field.placeholder}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  className="cta__input cta__textarea"
-                  rows="4"
-                />
-              ) : (
-                <input
-                  type={field.name === 'email' ? 'email' : 'text'}
-                  name={field.name}
-                  id={field.name}
-                  placeholder={field.placeholder}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  className="cta__input"
-                  autoComplete={field.name === 'email' ? 'email' : field.name === 'name' ? 'name' : 'off'}
-                />
-              )}
-              {errors[field.name] && (
-                <span className="cta__error">{errors[field.name]}</span>
-              )}
-            </div>
-          ))}
-          
-          <button type="submit" className="cta__submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Sending...' : 'Send'}
+
+        {/* Mobile View - Button */}
+        <div className="cta__mobile-view">
+          <button className="cta__mobile-button" onClick={onOpenPopup}>
+            Consult with Us
           </button>
-          
-          {submitStatus && (
-            <div className={`cta__status ${submitStatus.includes('Failed') || submitStatus.includes('try again') ? 'cta__status--error' : ''}`}>
-              {submitStatus}
-            </div>
-          )}
-        </form>
+        </div>
       </div>
     </section>
   );

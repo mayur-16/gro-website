@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/icons/gro_logo.svg';
 import './Header.css';
 
-function Header() {
+function Header({ onOpenPopup }) {
   const [showServicesMenu, setShowServicesMenu] = useState(false);
   const [isCtaAndFooterVisible, setIsCtaAndFooterVisible] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -57,6 +57,11 @@ function Header() {
     }
     setIsMobileMenuOpen(false); // Close menu after clicking
   };
+
+  const handleMobileCtaClick = () => {
+    onOpenPopup();
+    setIsMobileMenuOpen(false); // Close menu after clicking
+  }
 
   const handleNavClick = () => {
     setIsMobileMenuOpen(false); // Close menu when navigating
@@ -199,7 +204,7 @@ function Header() {
                 }
               </div>
             ))}
-            <button className="header__cta header__cta--mobile" onClick={handleCtaClick}>
+            <button className="header__cta header__cta--mobile" onClick={handleMobileCtaClick}>
               Get a Quote
             </button>
           </nav>
