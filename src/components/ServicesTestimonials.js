@@ -1,11 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import {IoArrowForwardCircleOutline} from 'react-icons/io5'
 import './ServicesTestimonials.css';
 
 function ServicesTestimonials() {
   const sectionRef = useRef(null);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentLogoSet, setCurrentLogoSet] = useState(0);
 
   const services = [
     {
@@ -113,6 +115,12 @@ function ServicesTestimonials() {
     'clientlogo6', 'clientlogo7', 'clientlogo8', 'clientlogo9', 'clientlogo10'
   ];
 
+  // Group logos into sets of 4 (2x2)
+  const logoSets = [];
+  for (let i = 0; i < clientLogos.length; i += 4) {
+    logoSets.push(clientLogos.slice(i, i + 4));
+  }
+
   const renderStars = (rating) => {
     return [...Array(5)].map((_, index) => (
       <FaStar 
@@ -122,12 +130,27 @@ function ServicesTestimonials() {
     ));
   };
 
-  // Scroll-based horizontal parallax effect
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  // Auto-scroll logos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLogoSet((prev) => (prev + 1) % logoSets.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [logoSets.length]);
+
+  // Scroll-based horizontal parallax effect (Desktop only)
   useEffect(() => {
     const handleScrollParallax = () => {
       if (!sectionRef.current) return;
       
-      // Desktop only
       if (window.innerWidth <= 768) return;
 
       const section = sectionRef.current;
@@ -136,21 +159,14 @@ function ServicesTestimonials() {
       const sectionHeight = sectionRect.height;
       const scrolled = window.pageYOffset;
 
-      // Check if section is in viewport
       if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
-        // Calculate scroll progress through the section (0 to 1)
         const scrollProgress = (scrolled - sectionTop) / (sectionHeight - window.innerHeight);
         const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
-        
-        // Map progress to horizontal position: 20% to 80% of viewport width
-        const xOffset =  (clampedProgress * 100);
-        
-        // Update CSS variable
+        const xOffset = clampedProgress * 100;
         section.style.setProperty('--parallax-x', `${xOffset}%`);
       }
     };
 
-    // Throttle scroll events
     let ticking = false;
     const scrollHandler = () => {
       if (!ticking) {
@@ -163,7 +179,7 @@ function ServicesTestimonials() {
     };
 
     window.addEventListener('scroll', scrollHandler);
-    handleScrollParallax(); // Initial call
+    handleScrollParallax();
 
     return () => {
       window.removeEventListener('scroll', scrollHandler);
@@ -176,7 +192,9 @@ function ServicesTestimonials() {
       <div className="services-testimonials__offer">
         <div className="services-testimonials__container">
           <h2 className="services-testimonials__title">We offer</h2>
-          <div className="services-testimonials__cards">
+          
+          {/* Desktop View */}
+          <div className="services-testimonials__cards services-testimonials__cards--desktop">
             {services.map((service) => (
               <Link
                 key={service.id}
@@ -194,6 +212,24 @@ function ServicesTestimonials() {
               </Link>
             ))}
           </div>
+
+          {/* Mobile View */}
+          <div className="services-testimonials__cards services-testimonials__cards--mobile">
+            {services.map((service) => (
+              <Link
+                key={service.id}
+                to={`/services/${service.id}`}
+                className="services-testimonials__card services-testimonials__card--mobile"
+              >
+                <div className="services-testimonials__card-content">
+                  <h3 className="services-testimonials__card-title">{service.title}</h3>
+                  <p className="services-testimonials__card-subtitle">{service.subtitle}</p>
+                </div>
+                <IoArrowForwardCircleOutline className="services-testimonials__card-arrow services-testimonials__card-arrow--mobile" />
+              </Link>
+            ))}
+          </div>
+          
           <p className="services-testimonials__expertise">
             Our expertise includes digital signatures, income tax e-filing assistance, corporate tax advisory, financial due diligence for M&A, DSC procurement, seamless LLP registration, export GST return filing, and dedicated tax dispute resolution.
           </p>
@@ -203,8 +239,10 @@ function ServicesTestimonials() {
       {/* Our Client Section */}
       <div className="services-testimonials__client">
         <div className="services-testimonials__container">
-          <h2 className="services-testimonials__title services-testimonials__title--client">Our Client</h2>
-          <div className="services-testimonials__testimonials">
+          <h2 className="services-testimonials__title services-testimonials__title--client">Our Clients</h2>
+          
+          {/* Desktop View */}
+          <div className="services-testimonials__testimonials services-testimonials__testimonials--desktop">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="services-testimonials__testimonial">
                 <h4 className="testimonial__name">{testimonial.name}</h4>
@@ -215,26 +253,60 @@ function ServicesTestimonials() {
               </div>
             ))}
           </div>
+
+          {/* Mobile View - Carousel */}
+          <div className="services-testimonials__testimonials services-testimonials__testimonials--mobile">
+            <button className="testimonial__nav testimonial__nav--prev" onClick={prevTestimonial}>
+              <FaChevronLeft />
+            </button>
+            <div className="services-testimonials__testimonial">
+              <h4 className="testimonial__name">{testimonials[currentTestimonial].name}</h4>
+              <div className="testimonial__rating">
+                {renderStars(testimonials[currentTestimonial].rating)}
+              </div>
+              <p className="testimonial__text">{testimonials[currentTestimonial].text}</p>
+            </div>
+            <button className="testimonial__nav testimonial__nav--next" onClick={nextTestimonial}>
+              <FaChevronRight />
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Client Logos Section */}
       <div className="services-testimonials__logos">
-          <div className="services-testimonials__logo-grid">
-            {clientLogos.map((logo, index) => (
-              <div key={index} className="services-testimonials__logo-item">
-                <img 
-                  src={require(`../assets/icons/${logo}.png`)} 
-                  alt={`Client ${index + 1}`}
-                  className="services-testimonials__logo"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-       </div>
+        {/* Desktop View */}
+        <div className="services-testimonials__logo-grid services-testimonials__logo-grid--desktop">
+          {clientLogos.map((logo, index) => (
+            <div key={index} className="services-testimonials__logo-item">
+              <img 
+                src={require(`../assets/icons/${logo}.png`)} 
+                alt={`Client ${index + 1}`}
+                className="services-testimonials__logo"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile View - Auto Carousel 2x2 */}
+        <div className="services-testimonials__logo-grid services-testimonials__logo-grid--mobile">
+          {logoSets[currentLogoSet]?.map((logo, index) => (
+            <div key={index} className="services-testimonials__logo-item">
+              <img 
+                src={require(`../assets/icons/${logo}.png`)} 
+                alt={`Client ${index + 1}`}
+                className="services-testimonials__logo"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
