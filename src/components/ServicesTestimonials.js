@@ -43,7 +43,7 @@ function ServicesTestimonials() {
     {
       id: 'trademark-services',
       title: 'Trademark Services',
-      subtitle: 'Protect your unique brand – let\'s secure your trademark.',
+      subtitle: 'Protect your unique brand â€" let\'s secure your trademark.',
     },
     {
       id: 'tax-litigation',
@@ -115,9 +115,9 @@ function ServicesTestimonials() {
     'clientlogo6', 'clientlogo7', 'clientlogo8', 'clientlogo9', 'clientlogo10'
   ];
 
-  // Group logos into sets of 4 (2x2)
+  // Group logos into sets of 2
   const logoSets = [];
-  for (let i = 0; i < clientLogos.length; i += 4) {
+  for (let i = 0; i < clientLogos.length; i += 2) {
     logoSets.push(clientLogos.slice(i, i + 2));
   }
 
@@ -138,11 +138,11 @@ function ServicesTestimonials() {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  // Auto-scroll logos
+  // Auto-scroll logos with 4 seconds timer
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentLogoSet((prev) => (prev + 1) % logoSets.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [logoSets.length]);
 
@@ -191,7 +191,7 @@ function ServicesTestimonials() {
       {/* We Offer Section */}
       <div className="services-testimonials__offer">
         <div className="services-testimonials__container">
-          <h2 className="services-testimonials__title">We offer</h2>
+          <h2 className="services-testimonials__title services-testimonials__title--offer">We offer</h2>
           
           {/* Desktop View */}
           <div className="services-testimonials__cards services-testimonials__cards--desktop">
@@ -239,7 +239,7 @@ function ServicesTestimonials() {
       {/* Our Client Section */}
       <div className="services-testimonials__client">
         <div className="services-testimonials__container">
-          <h2 className="services-testimonials__title services-testimonials__title--client">Our Clients</h2>
+          <h2 className="services-testimonials__title">Our Clients</h2>
           
           {/* Desktop View */}
           <div className="services-testimonials__testimonials services-testimonials__testimonials--desktop">
@@ -291,7 +291,7 @@ function ServicesTestimonials() {
           ))}
         </div>
 
-        {/* Mobile View - Auto Carousel 2x2 */}
+        {/* Mobile View - Auto Carousel 2 logos */}
         <div className="services-testimonials__logo-grid services-testimonials__logo-grid--mobile">
           {logoSets[currentLogoSet]?.map((logo, index) => (
             <div key={index} className="services-testimonials__logo-item">
