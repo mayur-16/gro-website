@@ -8,6 +8,7 @@ function ServicesTestimonials() {
   const sectionRef = useRef(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentLogoSet, setCurrentLogoSet] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const services = [
     {
@@ -43,7 +44,7 @@ function ServicesTestimonials() {
     {
       id: 'trademark-services',
       title: 'Trademark Services',
-      subtitle: 'Protect your unique brand â€" let\'s secure your trademark.',
+      subtitle: 'Protect your unique brand – let\'s secure your trademark.',
     },
     {
       id: 'tax-litigation',
@@ -139,10 +140,14 @@ function ServicesTestimonials() {
   };
 
   // Auto-scroll logos with 4 seconds timer
-  useEffect(() => {
+   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentLogoSet((prev) => (prev + 1) % logoSets.length);
-    }, 4000);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentLogoSet((prev) => (prev + 1) % logoSets.length);
+        setIsTransitioning(false);
+      }, 500);
+    }, 3000);
     return () => clearInterval(interval);
   }, [logoSets.length]);
 
@@ -292,7 +297,13 @@ function ServicesTestimonials() {
         </div>
 
         {/* Mobile View - Auto Carousel 2 logos */}
-        <div className="services-testimonials__logo-grid services-testimonials__logo-grid--mobile">
+        <div 
+          className="services-testimonials__logo-grid services-testimonials__logo-grid--mobile"
+          style={{
+            opacity: isTransitioning ? 0 : 1,
+            transform: isTransitioning ? 'translateX(-30px)' : 'translateX(0)'
+          }}
+        >
           {logoSets[currentLogoSet]?.map((logo, index) => (
             <div key={index} className="services-testimonials__logo-item">
               <img 

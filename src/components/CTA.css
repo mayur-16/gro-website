@@ -243,7 +243,7 @@
     }
 
     .cta__background {
-      background-color: var(--white-pure);
+      background-color: transparent;
     }
 
     .cta__mobile-button {
