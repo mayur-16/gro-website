@@ -1,0 +1,49 @@
+.at-gro-text {
+  font-weight: 350;
+  font-size: 17px;
+  text-align: start;
+  line-height: 1.6;
+  max-width: 60vw;
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+}
+
+.at-gro-text.white-theme {
+  color: var(--white1);
+}
+
+.at-gro-text.black-theme {
+  color: var(--black1);
+}
+
+.at-gro-text .bold {
+  font-weight: 600;
+}
+
+.at-gro-text .normaltitle {
+  font-weight: 200;
+  font-size: 42px;
+  text-align: start;
+  line-height: 1.6;
+}
+
+.at-gro-text .normaltitle.white-theme,
+.at-gro-text .boldtitle.white-theme {
+  color: var(--white1);
+}
+
+.at-gro-text .normaltitle.black-theme,
+.at-gro-text .boldtitle.black-theme {
+  color: var(--black1);
+}
+
+.at-gro-text .boldtitle {
+  font-weight: 600;
+  font-size: 42px;
+}
+
+.at-gro-text .title-wrapper {
+  display: block;
+  margin-bottom: 10px;
+}

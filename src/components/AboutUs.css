@@ -7,17 +7,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1450px;
     margin: 0 auto;
     gap: 10px;
+    padding-left: 6vw;
+    padding-right: 6vw;
   }
   
   .about-us__stack {
     position: relative;
     width: 100%;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-top: 10vh;
   }
   
   .about-us__bg-image {
@@ -29,15 +29,15 @@
     position: absolute;
     bottom: 10px;
     left: 10px;
-    max-width: 50vw;
+    max-width: 80%;
   }
   
   .about-us__logo-big {
     position: absolute;
-    top: -20px;
-    right: -20px;
-    max-width: 20vw;
-    padding: 5px;
+    top: -9vh;
+    right: -5vw;
+    max-width: 24vw;
+    /* padding: 5px; */
     z-index: 2;
   }
   
@@ -128,6 +128,6 @@
     }
   
     .about-us__vision {
-      max-width: 300px;
+      display: none;
     }
   }

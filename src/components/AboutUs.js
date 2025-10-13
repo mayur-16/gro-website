@@ -1,7 +1,6 @@
-import React from 'react';
 import CTA from './CTA';
 import aboutUsBg from '../assets/images/about_us_background_image.svg';
-import atGroText from '../assets/images/at_gro_text.svg';
+import  AtGroText , {DisplayMode} from './AtGroText';
 import groLogoBig from '../assets/icons/gro_logo_big.svg';
 import grosVision from '../assets/images/gros_vision.svg';
 import expertHat from '../assets/icons/expert_hat.svg';
@@ -47,11 +46,7 @@ function AboutUs() {
             alt="About Us Background"
             className="about-us__bg-image"
           />
-          <img
-            src={atGroText}
-            alt="At GRO Text"
-            className="about-us__at-gro"
-          />
+          <AtGroText isWhite={true} displayMode={DisplayMode.TITLE_AND_DETAILS}/>
           <img
             src={groLogoBig}
             alt="GRO Logo Big"
