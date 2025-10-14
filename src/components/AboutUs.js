@@ -1,6 +1,6 @@
 import CTA from './CTA';
 import aboutUsBg from '../assets/images/about_us_background_image.svg';
-import  AtGroText , {DisplayMode} from './AtGroText';
+import  AtGroText , {AtGroDetailsText,DisplayMode} from './AtGroText';
 import groLogoBig from '../assets/icons/gro_logo_big.svg';
 import grosVision from '../assets/images/gros_vision.svg';
 import expertHat from '../assets/icons/expert_hat.svg';
@@ -37,6 +37,8 @@ function AboutUs() {
     },
   ];
 
+
+
   return (
     <section className="about-us">
       <div className="about-us__container">
@@ -46,7 +48,11 @@ function AboutUs() {
             alt="About Us Background"
             className="about-us__bg-image"
           />
-          <AtGroText isWhite={true} displayMode={DisplayMode.TITLE_AND_DETAILS}/>
+          <AtGroText 
+          isWhite={true} 
+          displayMode={DisplayMode.TITLE_AND_DETAILS}
+          mobileDisplayMode={DisplayMode.TITLE_ONLY}
+          />
           <img
             src={groLogoBig}
             alt="GRO Logo Big"
@@ -58,6 +64,7 @@ function AboutUs() {
           alt="GRO's Vision"
           className="about-us__vision"
         />
+       <AtGroDetailsText />
         <h2 className="about-us__title">Why Us?</h2>
         <div className="about-us__cards">
           {cards.map((card, index) => (
@@ -67,8 +74,10 @@ function AboutUs() {
                 alt={card.title}
                 className="about-us__card-icon"
               />
-              <h3 className="about-us__card-title">{card.title}</h3>
-              <p className="about-us__card-subtext">{card.subtext}</p>
+             <div className="about-us__card-content">
+                <h3 className="about-us__card-title">{card.title}</h3>
+                <p className="about-us__card-subtext">{card.subtext}</p>
+              </div>
             </div>
           ))}
         </div>

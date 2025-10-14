@@ -25,13 +25,6 @@
     height: auto;
   }
   
-  .about-us__at-gro {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    max-width: 80%;
-  }
-  
   .about-us__logo-big {
     position: absolute;
     top: -9vh;
@@ -96,7 +89,7 @@
   
   .about-us__card-subtext {
     font-family: var(--font-family);
-    font-size: 15px;
+    font-size: 13.5px;
     font-weight: 400;
     color: var(--black4);
   }
@@ -104,7 +97,7 @@
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .about-us {
-      padding: 20px;
+      padding: 0px;
     }
   
     .about-us__card {
@@ -117,14 +110,72 @@
     }
   }
   
-  @media (max-width: 480px) {
+ @media (max-width: 480px) {
+    .about-us__container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .about-us__stack {
+      width: 100vw;
+      margin-left: calc(-1 * 0vw);
+      margin-right: calc(-1 * 0vw);
+      margin-top: 0;
+      margin-bottom: 2vh;
+    }
+
     .about-us__title {
       font-size: 28px;
+      margin-left: 0;
+      margin-top: 5vh;
+      margin-bottom: 3vh;
+      padding-left: 6vw;
     }
   
-    .about-us__at-gro,
+    
     .about-us__logo-big {
-      max-width: 150px;
+      display: none;
+    }
+
+    .about-us__bg-image {
+      width: 100%;
+      height: 30vh;
+      object-fit: cover;
+      object-position: 5% center;
+    }
+
+    .about-us__card {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .about-us__card-icon {
+      flex-shrink: 0;
+      margin-bottom: 0;
+    }
+
+    .about-us__card-title {
+      text-align: left;
+      align-self: flex-start;
+      margin: 0 0 10px 0;
+    }
+
+    .about-us__card-subtext {
+      text-align: left;
+      margin: 0;
+    }
+
+    .about-us__cards {
+      padding-left: 5vw;
+      padding-right: 5vw;
+      gap: 15px;
+      margin-bottom: 2vh;
+    }
+
+    .atgro-details-text {
+      margin-left: 6vw;
+      margin-right: 6vw;
     }
   
     .about-us__vision {

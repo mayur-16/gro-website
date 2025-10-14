@@ -47,3 +47,20 @@
   display: block;
   margin-bottom: 10px;
 }
+
+.at-gro-details-text {
+  font-weight: 400;
+  font-size: 14.5px;
+  text-align: start;
+  line-height: 1.8;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.at-gro-details-text.black-theme {
+  color: var(--black1);
+}
+
+.at-gro-details-text .bold {
+  font-weight: 600;
+}
