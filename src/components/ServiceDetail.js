@@ -3,14 +3,14 @@ import { useParams, Link } from 'react-router-dom';
 import { FaAngleLeft ,FaCheckSquare } from 'react-icons/fa';
 import {IoArrowForwardCircleOutline} from 'react-icons/io5'
 import groLogoBig from '../assets/icons/gro_logo_big.svg';
+import groLogoMobile from '../assets/icons/gro_logo_mobile.svg';
 import CTA from './CTA';
 import './ServiceDetail.css';
 
 function ServiceDetail() {
   const { serviceId } = useParams();
 
-
-   const handleCtaClick = () => {
+  const handleCtaClick = () => {
     const ctaElement = document.querySelector('.cta');
     if (ctaElement) {
       ctaElement.scrollIntoView({ behavior: 'smooth' });
@@ -349,51 +349,56 @@ function ServiceDetail() {
           <FaAngleLeft />
           Back
         </Link>
-         <img
-            src={groLogoBig}
-            alt="GRO Logo Big"
-            className="service-detail__logo"
-          />
+        <img
+          src={groLogoBig}
+          alt="GRO Logo Big"
+          className="service-detail__logo"
+        />
         <div className="service-detail-card__container">
-          
-           <div className="service-detail__card">
-              <div className="service-detail__card-content">
-                <h1 className="service-detail__title">{service.title}</h1>
-                <p className="service-detail__subtitle">{service.subtitle}</p>
-                <p className="service-detail__description">{service.description}</p>
-                <h2 className="service-detail__benefits-title">Key Benefits</h2>
-                <div className="service-detail__benefits">
-                  {service.keyBenefits.map((benefit, index) => (
-                    <div key={index} className="service-detail__benefit-card">
-                      <FaCheckSquare className="service-detail__benefit-icon" />
-                      <p className="service-detail__benefit-text">{benefit}</p>
-                    </div>
-                  ))}
-                </div>
-                <button className="service-detail__cta" onClick={handleCtaClick} >
-                  Get Started
-                  <IoArrowForwardCircleOutline className="service-detail__cta-icon" />
-                </button>
+          <img
+              src={groLogoMobile}
+              alt="GRO Logo"
+              className="service-detail__logo-mobile"
+            />
+          <div className="service-detail__card">
+            
+            <div className="service-detail__card-content">
+              <h1 className="service-detail__title">{service.title}</h1>
+              <p className="service-detail__subtitle">{service.subtitle}</p>
+              <button className="service-detail__cta" onClick={handleCtaClick}>
+                Get Started
+                <IoArrowForwardCircleOutline className="service-detail__cta-icon" />
+              </button>
+              <p className="service-detail__description">{service.description}</p>
+              <h2 className="service-detail__benefits-title">Key Benefits</h2>
+              <div className="service-detail__benefits">
+                {service.keyBenefits.map((benefit, index) => (
+                  <div key={index} className="service-detail__benefit-card">
+                    <FaCheckSquare className="service-detail__benefit-icon" />
+                    <p className="service-detail__benefit-text">{benefit}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            <h2 className="service-detail__how-title">How it works</h2>
-            <div className="service-detail__how-cards">
-              {service.howItWorks.map((step, index) => (
-                <div key={index} className="service-detail__how-card">
-                  {step.title && (
-                    <h3 className="service-detail__how-step">
-                      <span className="service-detail__how-step-number">Step {index + 1}:</span> {step.title}
-                    </h3>
-                  )}
-                  {step.description && (
-                    <p className="service-detail__how-description">{step.description}</p>
-                  )}
-                  {step.optionalDescription && (
-                    <p className="service-detail__how-optional">{step.optionalDescription}</p>
-                  )}
-                </div>
-              ))}
-            </div>
+          </div>
+          <h2 className="service-detail__how-title">How it works</h2>
+          <div className="service-detail__how-cards">
+            {service.howItWorks.map((step, index) => (
+              <div key={index} className="service-detail__how-card">
+                {step.title && (
+                  <h3 className="service-detail__how-step">
+                    <span className="service-detail__how-step-number">Step {index + 1}:</span> {step.title}
+                  </h3>
+                )}
+                {step.description && (
+                  <p className="service-detail__how-description">{step.description}</p>
+                )}
+                {step.optionalDescription && (
+                  <p className="service-detail__how-optional">{step.optionalDescription}</p>
+                )}
+              </div>
+            ))}
+          </div>
         </div>  
         <CTA calledFromAboutUs={false} />
       </div>
