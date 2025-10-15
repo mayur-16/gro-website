@@ -6,7 +6,7 @@ import groLogoBig from '../assets/icons/gro_logo_big.svg';
 import { FaAngleRight } from 'react-icons/fa';
 import './Services.css';
 
-function Services() {
+function Services({ onOpenPopup }) {
   const services = [
     {
       id: 'dsc',
@@ -87,7 +87,7 @@ function Services() {
           ))}
         </div>
       </div>
-      <CTA calledFromAboutUs={false} />
+      <CTA calledFromAboutUs={false} onOpenPopup={onOpenPopup}/>
     </section>
   );
 }

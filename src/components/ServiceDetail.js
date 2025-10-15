@@ -7,7 +7,7 @@ import groLogoMobile from '../assets/icons/gro_logo_mobile.svg';
 import CTA from './CTA';
 import './ServiceDetail.css';
 
-function ServiceDetail() {
+function ServiceDetail({ onOpenPopup }) {
   const { serviceId } = useParams();
 
   const handleCtaClick = () => {
@@ -400,7 +400,7 @@ function ServiceDetail() {
             ))}
           </div>
         </div>  
-        <CTA calledFromAboutUs={false} />
+        <CTA calledFromAboutUs={false} onOpenPopup={onOpenPopup}/>
       </div>
     </section>
   );

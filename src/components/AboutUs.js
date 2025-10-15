@@ -9,7 +9,7 @@ import transparencyIcon from '../assets/icons/transparency_icon.svg';
 import globalReachIcon from '../assets/icons/global_reach_icon.svg';
 import './AboutUs.css';
 
-function AboutUs() {
+function AboutUs({ onOpenPopup }) {
   const cards = [
     {
       icon: expertHat,
@@ -82,7 +82,7 @@ function AboutUs() {
           ))}
         </div>
       </div>
-      <CTA calledFromAboutUs={true} />
+      <CTA calledFromAboutUs={true} onOpenPopup={onOpenPopup} />
     </section>
   );
 }
