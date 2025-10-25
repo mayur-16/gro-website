@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+
+# how to build structure.txt
+ls -R > structure.txt
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -22,7 +22,7 @@ function ServiceDetail({ onOpenPopup }) {
       title: 'Income Tax Returns',
       subtitle: "File Your ITR in 59 Minutes! Don't pay more than what's necessary",
       description:
-        "Streamline your financial management with GRO's professional accounting and bookkeeping services. We meticulously handle accounts payable and receivable management, payroll processing, bank reconciliation, and maintain precise financial records. Our certified bookkeepers deliver accurate, up-to-date insights via efficient outsourced accounting solutions, enabling informed business decisions and ensuring continuous tax and regulatory compliance.",
+        "Experience the convenience of a 100% remote income tax filing process. We respect your time by handling your return entirely online, with no need for physical appointments. Our experts meticulously verify all claims and declarations to ensure accuracy, helping you secure the maximum benefits available under tax law at no extra cost",
       keyBenefits: [
         'Speed & Convenience: Streamlined online process, aim for quick turnaround.',
         'Accuracy Guaranteed: Expert review to minimize errors & ensure compliance.',
@@ -79,28 +79,21 @@ function ServiceDetail({ onOpenPopup }) {
        optionalDescription: "Don't pay more than what's necessary",
         },
         {
-            title:'Expert Review & Optimization',
-            description:"A tax expert reviews your filing, ensuring maximum deductions and accurate returns, so you don't pay more than necessary."
+            title:'Approval & delivery',
+            description:"We will follow up for approval and prepare your Digital signature token for delivery."
         },
-        {
-            title: 'Approval & E-Filing',
-            description:'Once you confirm the details, we file your IT return with the Income Tax Department, and you receive an instant acknowledgment.'
-        },
-        {
-            title: 'Confirmation & Support',
-            description:"You'll receive a confirmation email with your ITR filing status and next steps. Need help? Our experts are available at no extra cost!"
-        }
+        
         
        ] },
     'tax-advisory': { title: 'Tax Advisory', 
       subtitle: 'Expert opinions on complicated tax matters',
-       description: 'Optimize your tax position with our expert tax advisory services. Our certified tax consultants provide tailored strategic tax planning and comprehensive tax compliance management for both individuals and businesses across India. Navigate complex Indian tax regulations confidently as we help you maximize tax savings, ensure full adherence, and proactively manage tax risks. From corporate tax advisory to individual tax filing guidance, trust our reliable solutions for efficient tax management.',
+       description: 'Unlock your full financial potential with our expert tax advisory services. Our expert consultants provide strategic tax planning and meticulous compliance management tailored to your unique needs. We empower individuals and businesses across India to confidently navigate intricate tax laws, maximizing savings while ensuring complete regulatory adherence. Let us proactively manage your tax risks and provide reliable guidance for all your tax obligations',
        keyBenefits: [
         "Optimize Tax Liability: Strategic planning to legally minimize your tax burden.",
         "Ensure Compliance: Stay confidently compliant with complex, ever-changing tax laws.",
         "Risk Management: Identify and mitigate potential tax risks proactively.",
         "Business & Personal Planning: Tailored advice for corporate structures, investments, and personal finances.",
-        "Expert Insights: Leverage the knowledge of certified tax consultants."
+        "Expert Insights: Leverage the knowledge of expert tax consultants."
        ], howItWorks: [
         {
           title: 'Submit Your Details',
@@ -126,7 +119,8 @@ function ServiceDetail({ onOpenPopup }) {
             description:"You'll receive a confirmation email with your ITR filing status and next steps. Need help? Our experts are available at no extra cost!"
         }
        ] },
-    'incorporation-services': { title: 'Incorporation Services', subtitle: "We'll help you open your business doors", description: "Launch your venture smoothly with GRO's expert business incorporation services in India. Our company registration consultants handle everything from private limited company registration, LLP registration, and partnership formation to ensuring legal compliance and advising on optimal tax structuring for startups. We provide end-to-end new company formation assistance, making the entire business setup services process efficient and saving you valuable time.",
+    'incorporation-services': { title: 'Incorporation Services', subtitle: "We'll help you open your business doors",
+       description: "Launch your venture smoothly with GRO's expert business incorporation services in India. Our registration consultants handle everything from Private limited company registration, LLP registration, and partnership formation to ensuring legal compliance and advising on optimal tax structuring for startups. We provide end-to-end new company formation assistance, making the entire business setup services process efficient and saving you valuable time.",
        keyBenefits: [
         "Fast Formation: Streamlined process for quick Company, LLP, or Partnership registration.",
         "Compliance Assured: Ensure all initial legal and ROC compliance requirements are met.",
@@ -160,7 +154,7 @@ function ServiceDetail({ onOpenPopup }) {
         }
        ] },
     'gst-filing': { title: 'GST Returns', subtitle: 'We handle your GST registration, filing, and compliance accurately, so you avoid penalties and maximize credits.', 
-      description: "Launch your venture smoothly with our expert business incorporation services in India. Our company registration consultants handle everything from private limited company registration, LLP registration, and partnership formation to ensuring legal compliance and advising on optimal tax structuring for startups. We provide end-to-end new company formation assistance, making the entire business setup services process efficient and saving you valuable time.",
+      description: "Simplify GST compliance with our expert services. We handle GST registration, filing returns, audits to ensure accuracy and adherence to regulations. Our certified GST consultants help businesses avoid penalties, maximize input tax credits, and stay updated on GST laws.",
        keyBenefits: [
         "Timely Filing: Ensure all your GST returns (GSTR-1, GSTR-3B, etc.) are filed accurately and on time.",
         "Maximize ITC: Proper reconciliation to ensure you claim all eligible Input Tax Credits.",
@@ -193,9 +187,7 @@ function ServiceDetail({ onOpenPopup }) {
         }
        ] },
     'accounting-bookkeeping': { title: 'Accounting & Bookkeeping', subtitle: 'Clarity & Control Over Your Finances.',
-         description: "Streamline your financial management with GRO's professional accounting and bookkeeping services. "+
-         "We meticulously handle accounts payable and receivable management, payroll processing, bank reconciliation, and maintain precise financial records. "+
-         "Our certified bookkeepers deliver accurate, up-to-date insights via efficient outsourced accounting solutions, enabling informed business decisions and ensuring continuous tax and regulatory compliance.", 
+         description: "Streamline your financial management with GRO's professional accounting and bookkeeping services. We meticulously handle accounts payable and receivable management, payroll processing, bank reconciliation, and maintain precise financial records. Our experienced bookkeepers deliver accurate, up-to-date insights via efficient outsourced accounting solutions, enabling informed business decisions and ensuring continuous tax and regulatory compliance.",
          keyBenefits: [
             "Accurate Records: Meticulous management of AP/AR, expenses, and financial transactions.",
             "Real-Time Insights: Up-to-date books for informed business decision-making.",
@@ -265,7 +257,7 @@ function ServiceDetail({ onOpenPopup }) {
        subtitle: 'Right to invest or Wrong?', 
       description: "Navigate tax disputes effectively with GRO's specialized Indian tax litigation services. Our experienced tax consultants provide expert representation in complex tax dispute resolution cases, including Income Tax litigation, GST litigation, and matters related to Service Tax, Central Excise, and Customs. We handle tax appeals, represent clients before tax tribunals and courts, ensuring compliance, aiming to minimize tax liabilities, and protecting your financial interests.",
        keyBenefits: [
-        "Expert Representation: Skilled representation before Assessing Officers, Appeals, Tribunals & Courts.",
+        "Expert Representation: Skilled representation before Assessing Officers, Appellate authorities, Tribunals & Courts.",
         "Strategic Defense: Develop strong arguments based on tax law and case precedents.",
         "Minimize Liabilities: Aim to reduce potential tax demands, interest, and penalties.",
         "Navigate Procedures: Expert handling of complex litigation processes and documentation.",
@@ -298,7 +290,7 @@ function ServiceDetail({ onOpenPopup }) {
         ] },
     'trademark-services': { 
       title: 'Trademark Services',
-       subtitle: "Protect your unique brand name and logo , let's secure your trademark registration in India.", 
+       subtitle: "Protect your unique brand name and logo , let's secure your trademark in India.", 
        description: 'Protect your valuable brand identity with our expert trademark services in India. Our team handles comprehensive trademark search, manages the entire trademark registration process, assists with timely trademark renewal, and advises on trademark enforcement strategies. Safeguard your intellectual property (IP) and secure your unique brand identity from potential disputes with our certified trademark consultants.',
         keyBenefits: [
           "Exclusive Rights: Gain legal right to use your brand name/logo nationwide for specific goods/services.",

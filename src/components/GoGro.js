@@ -78,12 +78,15 @@ export default function GoGroComponent() {
   return (
     <div 
       style={{
-        width: '220px',
-        height: '320px',
+        width: '210px',
+        height: '310px',
         // background: 'linear-gradient(180deg, #2C3E50 0%, #34495E 100%)',
         background: '#243139',
         borderRadius: '24px',
-        padding: '24px',
+        paddingLeft: '20px',
+        paddingRight: '20px',
+        paddingTop: '0px',
+        paddingBottom: '15px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -91,7 +94,7 @@ export default function GoGroComponent() {
         overflow: 'hidden'
       }}
     >
-      <h1 style={{ color: 'white', fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
+      <h1 style={{ color: 'white', fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>
         Savings
       </h1>
       
@@ -140,7 +143,7 @@ export default function GoGroComponent() {
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
-          padding: '12px 24px',
+          padding: '8px 20px',
           backgroundColor: 'white',
           borderRadius: '9999px',
           color: '#01377D',
