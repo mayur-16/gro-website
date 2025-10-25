@@ -4,6 +4,17 @@ import { FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import {IoArrowForwardCircleOutline} from 'react-icons/io5'
 import './ServicesTestimonials.css';
 
+import ClientLogo1 from '../assets/icons/clientlogo1.svg';
+import ClientLogo2 from '../assets/icons/clientlogo2.svg';
+import ClientLogo3 from '../assets/icons/clientlogo3.svg';
+import ClientLogo4 from '../assets/icons/clientlogo4.svg';
+import ClientLogo5 from '../assets/icons/clientlogo5.svg';
+import ClientLogo6 from '../assets/icons/clientlogo6.svg';
+import ClientLogo7 from '../assets/icons/clientlogo7.svg';
+import ClientLogo8 from '../assets/icons/clientlogo8.svg';
+import ClientLogo9 from '../assets/icons/clientlogo9.svg';
+import ClientLogo10 from '../assets/icons/clientlogo10.svg';
+
 function ServicesTestimonials() {
   const sectionRef = useRef(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -111,10 +122,19 @@ function ServicesTestimonials() {
     }
   ];
 
-  const clientLogos = [
-    'clientlogo1', 'clientlogo2', 'clientlogo3', 'clientlogo4', 'clientlogo5',
-    'clientlogo6', 'clientlogo7', 'clientlogo8', 'clientlogo9', 'clientlogo10'
-  ];
+ // Define logo array with static imports
+const clientLogos = [
+    { src: ClientLogo1, alt: 'Natsu' },
+    { src: ClientLogo2, alt: 'Old PRAX' },
+    { src: ClientLogo3, alt: 'Thelma' },
+    { src: ClientLogo4, alt: 'interenergy.in' },
+    { src: ClientLogo5, alt: 'indian athletes' },
+    { src: ClientLogo6, alt: 'Ashwa' },
+    { src: ClientLogo7, alt: 'eightten stories' },
+    { src: ClientLogo8, alt: 'Food nation' },
+    { src: ClientLogo9, alt: 'Crave' },
+    { src: ClientLogo10, alt: 'Westelza' },
+];
 
   // Group logos into sets of 2
   const logoSets = [];
@@ -150,6 +170,7 @@ function ServicesTestimonials() {
     }, 3000);
     return () => clearInterval(interval);
   }, [logoSets.length]);
+
 
   // Scroll-based horizontal parallax effect (Desktop only)
   useEffect(() => {
@@ -236,7 +257,7 @@ function ServicesTestimonials() {
           </div>
           
           <p className="services-testimonials__expertise">
-            Our expertise includes digital signatures, income tax e-filing assistance, corporate tax advisory, financial due diligence for M&A, DSC procurement, seamless LLP registration, export GST return filing, and dedicated tax dispute resolution.
+            Our expertise includes income tax e-filing assistance, corporate tax advisory, financial due diligence for M&A, DSC procurement, seamless LLP registration, export GST return filing, dedicated tax dispute resolution and digital signatures.
           </p>
         </div>
       </div>
@@ -285,9 +306,10 @@ function ServicesTestimonials() {
           {clientLogos.map((logo, index) => (
             <div key={index} className="services-testimonials__logo-item">
               <img 
-                src={require(`../assets/icons/${logo}.png`)} 
-                alt={`Client ${index + 1}`}
+                src={logo.src}
+                alt={logo.alt}
                 className="services-testimonials__logo"
+                loading="lazy"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
@@ -307,9 +329,10 @@ function ServicesTestimonials() {
           {logoSets[currentLogoSet]?.map((logo, index) => (
             <div key={index} className="services-testimonials__logo-item">
               <img 
-                src={require(`../assets/icons/${logo}.png`)} 
-                alt={`Client ${index + 1}`}
+               src={logo.src}
+                alt={logo.alt}
                 className="services-testimonials__logo"
+                loading="lazy"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}

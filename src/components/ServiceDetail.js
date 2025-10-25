@@ -34,7 +34,7 @@ function ServiceDetail({ onOpenPopup }) {
         {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
         {
           title: 'Processing & Verification',
@@ -70,7 +70,7 @@ function ServiceDetail({ onOpenPopup }) {
         {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
         {
           title: 'Processing & Verification',
@@ -105,7 +105,7 @@ function ServiceDetail({ onOpenPopup }) {
         {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
          {
           title: 'Processing & Verification',
@@ -138,7 +138,7 @@ function ServiceDetail({ onOpenPopup }) {
          {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
         {
           title: 'Processing & Verification',
@@ -171,7 +171,7 @@ function ServiceDetail({ onOpenPopup }) {
           {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
         {
           title: 'Processing & Verification',
@@ -206,7 +206,7 @@ function ServiceDetail({ onOpenPopup }) {
             {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
         {
           title: 'Processing & Verification',
@@ -240,7 +240,7 @@ function ServiceDetail({ onOpenPopup }) {
             {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
         {
           title: 'Processing & Verification',
@@ -275,7 +275,7 @@ function ServiceDetail({ onOpenPopup }) {
             {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
         {
           title: 'Processing & Verification',
@@ -311,7 +311,7 @@ function ServiceDetail({ onOpenPopup }) {
             {
           title: 'Submit Your Details',
           description:
-            'Fill in your basic financial details and provide the necessary documents.',
+            'Fill in your basic KYC and provide the necessary documents.',
         },
         {
           title: 'Processing & Verification',

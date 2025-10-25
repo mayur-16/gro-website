@@ -176,7 +176,7 @@ function CTA({ calledFromAboutUs, onOpenPopup }) {
         {/* Mobile View - Button */}
         <div className="cta__mobile-view">
           <button className="cta__mobile-button" onClick={onOpenPopup}>
-            Consult with Us
+            Consult with us
           </button>
         </div>
       </div>

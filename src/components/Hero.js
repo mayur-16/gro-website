@@ -1,7 +1,8 @@
 import CountUp from 'react-countup';
 import HighlightedText from './HighlightedText';
 import GroAssociatesExplanationText from './GroExplainationText';
-import goGroImage from '../assets/images/Go_gro.svg';
+import GoGroComponent from './GoGro';
+// import goGroImage from '../assets/images/Go_gro.svg';
 import groLogoMobile from '../assets/icons/gro_logo_mobile.svg';
 import './Hero.css';
 
@@ -53,7 +54,7 @@ function Hero({ onOpenPopup }) {
           </div>
           <div className="hero__mobile-actions">
             <button className="hero__cta hero__cta--mobile" onClick={onOpenPopup}>
-              Consult with Us Today
+              Consult us today
             </button>
             <button className="hero__cta hero__cta--mobile hero__cta--services" onClick={() => window.location.href = '/services'}>
               Our Services
@@ -63,7 +64,10 @@ function Hero({ onOpenPopup }) {
 
         <div className="hero__right">
           <div className="hero__right-bg" />
-          <img src={goGroImage} alt="Go GRO" className="hero__go-gro" />
+          {/* <img src={goGroImage} alt="Go GRO" className="hero__go-gro" /> */}
+          <div className="hero__go-gro">
+            <GoGroComponent />
+          </div>
         </div>
       </div>
       <div className="hero__stats">

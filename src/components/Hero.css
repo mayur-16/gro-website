@@ -75,9 +75,9 @@
   position: absolute;
   bottom: 10%;
   left: -20%;
-  height: 55%;
-  width: auto;
-  /* max-width: 250px;
+  /* height: 55%;
+  width: 100%; */
+  /*max-width: 250px;
   min-width: 150px;
   max-height: 350px;
   min-height: 180px;

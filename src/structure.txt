@@ -29,20 +29,14 @@ global_reach_icon.svg
 gro_logo.svg
 gro_logo_big.svg
 gro_logo_mobile.svg
-gro_logo_title_black.svg
-gro_logo_title_white.svg
 instagram_logo.svg
 linkedin_logo.svg
 transparency_icon.svg
 trusted_icon.svg
 
 ./assets/images:
-0d4e03d6218ca7d1df4a6d194f034c68713a3366.png
 Go_gro.svg
-Hero_section_explanaition_text.svg
 about_us_background_image.svg
-at_gro_text.svg
-ee08f58bfd51d1a27f8dccd3a00ce67f42abbd42.png
 gandhi_background_image.jpg
 gros_vision.svg
 our_services_background_image.svg
@@ -52,10 +46,16 @@ website_background_logo_hovered.svg
 ./components:
 AboutUs.css
 AboutUs.js
+AtGroText.css
+AtGroText.js
 CTA.css
 CTA.js
+CTAPopup.css
+CTAPopup.js
 Footer.css
 Footer.js
+GroExplainationText.css
+GroExplainationText.js
 Header.css
 Header.js
 Hero.css

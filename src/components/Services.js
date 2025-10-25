@@ -8,25 +8,21 @@ import './Services.css';
 
 function Services({ onOpenPopup }) {
   const services = [
-    {
-      id: 'dsc',
-      title: 'Digital Signature Certificate (DSC)',
-      subtitle: 'Get Your DSC Online, Fast!',
-    },
+    
     {
       id: 'tax-advisory',
       title: 'Tax Advisory',
-      subtitle: 'Your Strategic Tax Partner.',
+      subtitle: 'Your strategic tax partner.',
     },
     {
       id: 'incorporation-services',
       title: 'Incorporation Services',
-      subtitle: 'Launch Your Dream Business!',
+      subtitle: 'Launch your dream business!',
     },
      {
       id: 'gst-filing',
       title: 'GST Returns',
-      subtitle: 'Master Your GST Compliance.',
+      subtitle: 'Master your GST compliance.',
     },
     {
       id: 'income-tax-returns',
@@ -36,24 +32,28 @@ function Services({ onOpenPopup }) {
     {
       id: 'accounting-bookkeeping',
       title: 'Accounting & Bookkeeping',
-      subtitle: 'Clarity & Control Over Your Finances.',
+      subtitle: 'Clarity & control over your finances.',
     },
     {
       id: 'financial-due-diligence',
       title: 'Financial Due Diligence (FDD)',
-      subtitle: 'Invest & Acquire with Confidence.',
+      subtitle: 'Invest & acquire with confidence.',
     },
     {
       id: 'trademark-services',
       title: 'Trademark Services',
-      subtitle: 'Protect your unique brand name and logo – let’s secure your trademark registration in India.',
+      subtitle: 'Protect your unique brand name and logo – let’s secure your trademark in india.',
     },
     {
       id: 'tax-litigation',
       title: 'Tax Litigation',
-      subtitle: 'Defend Your Rights in Tax Disputes.',
+      subtitle: 'Defend your rights in tax disputes.',
     },
-   
+   {
+      id: 'dsc',
+      title: 'Digital Signature Certificate (DSC)',
+      subtitle: 'Get your DSC online, fast!',
+    },
   ];
 
   return (
