@@ -1,15 +1,35 @@
 import CTA from './CTA';
 import aboutUsBg from '../assets/images/about_us_background_image.svg';
-import  AtGroText , {AtGroDetailsText,DisplayMode} from './AtGroText';
-import groLogoBig from '../assets/icons/gro_logo_big.svg';
+import aboutUsBgmobile from '../assets/images/about_us_background_mobile.svg';
+import AtGroText , {AtGroDetailsText,DisplayMode} from './AtGroText';
 import grosVision from '../assets/images/gros_vision.svg';
 import expertHat from '../assets/icons/expert_hat.svg';
 import trustedIcon from '../assets/icons/trusted_icon.svg';
 import transparencyIcon from '../assets/icons/transparency_icon.svg';
 import globalReachIcon from '../assets/icons/global_reach_icon.svg';
 import './AboutUs.css';
+import { useEffect, useState } from 'react';
+
+// Custom hook to detect media query
+const useMediaQuery = (query) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    setMatches(media.matches);
+
+    const listener = () => setMatches(media.matches);
+    media.addListener(listener);
+    return () => media.removeListener(listener);
+  }, [query]);
+
+  return matches;
+};
 
 function AboutUs({ onOpenPopup }) {
+
+    const isMobile = useMediaQuery('(max-width: 480px)');
+
   const cards = [
     {
       icon: expertHat,
@@ -44,7 +64,7 @@ function AboutUs({ onOpenPopup }) {
       <div className="about-us__container">
         <div className="about-us__stack">
           <img
-            src={aboutUsBg}
+            src={isMobile ? aboutUsBgmobile : aboutUsBg}
             alt="About Us Background"
             className="about-us__bg-image"
           />
@@ -52,11 +72,6 @@ function AboutUs({ onOpenPopup }) {
           isWhite={true} 
           displayMode={DisplayMode.TITLE_AND_DETAILS}
           mobileDisplayMode={DisplayMode.TITLE_ONLY}
-          />
-          <img
-            src={groLogoBig}
-            alt="GRO Logo Big"
-            className="about-us__logo-big"
           />
         </div>
         <img

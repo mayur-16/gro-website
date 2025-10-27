@@ -35,7 +35,7 @@ function Hero({ onOpenPopup }) {
             className="hero__explanation-image"
           /> */}
           <div className="hero__actions">
-            <button className="hero__cta" onClick={handleCtaClick}>Consult with Us Today</button>
+            <button className="hero__cta" onClick={handleCtaClick}>Consult Us Today</button>
             <button className="hero__cta hero__cta--services" onClick={() => window.location.href = '/services'}>
               Our Services
             </button>

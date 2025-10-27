@@ -17,21 +17,12 @@
   .about-us__stack {
     position: relative;
     width: 100%;
-    margin-top: 10vh;
+    margin-top: 7vh;
   }
   
   .about-us__bg-image {
     width: 100%;
     height: auto;
-  }
-  
-  .about-us__logo-big {
-    position: absolute;
-    top: -9vh;
-    right: -5vw;
-    max-width: 24vw;
-    /* padding: 5px; */
-    z-index: 2;
   }
   
   .about-us__vision {
@@ -117,11 +108,7 @@
     }
 
     .about-us__stack {
-      width: 100vw;
-      margin-left: calc(-1 * 0vw);
-      margin-right: calc(-1 * 0vw);
       margin-top: 0;
-      margin-bottom: 2vh;
     }
 
     .about-us__title {

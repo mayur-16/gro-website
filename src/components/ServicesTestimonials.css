@@ -136,7 +136,7 @@
   text-align: start;
   color: var(--blue-800);
   flex-grow: 1;
-  margin-top: 5px;
+  margin-top: 1px;
 }
 
 .services-testimonials__card-action {
@@ -394,7 +394,7 @@
 
   .services-testimonials__card--mobile .services-testimonials__card-subtitle {
     font-size: 13px;
-    margin-top: 5px;
+    margin-top: 2px;
   }
 
   .services-testimonials__card-arrow--mobile {

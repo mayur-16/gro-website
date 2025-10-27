@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { FaAngleLeft ,FaCheckSquare } from 'react-icons/fa';
 import {IoArrowForwardCircleOutline} from 'react-icons/io5'
 import groLogoBig from '../assets/icons/gro_logo_big.svg';
-import groLogoMobile from '../assets/icons/gro_logo_mobile.svg';
 import CTA from './CTA';
 import './ServiceDetail.css';
 
@@ -348,7 +347,7 @@ function ServiceDetail({ onOpenPopup }) {
         />
         <div className="service-detail-card__container">
           <img
-              src={groLogoMobile}
+              src={groLogoBig}
               alt="GRO Logo"
               className="service-detail__logo-mobile"
             />
