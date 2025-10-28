@@ -172,8 +172,8 @@ const clientLogos = [
   }, [logoSets.length]);
 
 
-  // Scroll-based horizontal parallax effect (Desktop only)
-  useEffect(() => {
+    // Scroll-based horizontal parallax effect (Desktop only)
+   useEffect(() => {
     const handleScrollParallax = () => {
       if (!sectionRef.current) return;
       
@@ -185,10 +185,18 @@ const clientLogos = [
       const sectionHeight = sectionRect.height;
       const scrolled = window.pageYOffset;
 
-      if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
-        const scrollProgress = (scrolled - sectionTop) / (sectionHeight - window.innerHeight);
+      // Start the effect earlier - when section is 100vh away from viewport
+      const startOffset = window.innerHeight;
+      const effectStart = sectionTop - startOffset;
+      const effectRange = sectionHeight + startOffset;
+
+      if (scrolled > effectStart && scrolled < sectionTop + sectionHeight) {
+        const scrollProgress = (scrolled - effectStart) / effectRange;
         const clampedProgress = Math.max(0, Math.min(1, scrollProgress));
-        const xOffset = clampedProgress * 100;
+        // Move from left (negative value) to center (0), then stop at center
+        // When progress reaches 0.5 (50%), it stops at center (0%)
+        const centerProgress = Math.min(clampedProgress * 2.7, 1); // Reaches 1 at 50% scroll
+        const xOffset = -20 + (centerProgress * 70); // Start at -30%, end at 0% (center)
         section.style.setProperty('--parallax-x', `${xOffset}%`);
       }
     };
